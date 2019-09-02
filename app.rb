@@ -28,6 +28,10 @@ after do
 end
 
 get "/" do
-	@crops = @storage.all_crops 
+	@values = ["5", "1", "1", "11", "{14, 17, 20, 23}", "23"]
+	@storage.add_planted_crop(@values)
+	@yes = @storage.single_planted_crop(17)
+	@crops = @storage.all_planted_crops 
+	@egg = @storage.single_crop("Cauliflower")
 	erb :index
 end
