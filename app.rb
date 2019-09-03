@@ -145,11 +145,7 @@ after do
 end
 
 get "/" do
-	@values = ["5", "1", "1", "11", "{14, 17, 20, 23}", "23"]
-	@storage.add_planted_crop(@values)
-	@yes = @storage.single_planted_crop(17)
-	@crops = @storage.all_planted_crops 
-	@egg = @storage.single_crop("Cauliflower")
+
 	erb :index
 end
 
@@ -163,6 +159,7 @@ end
 
 get "/calendar/:season" do
 	@season = params[:season].capitalize
+	@seasons = ["Spring", "Summer", "Fall"]
 	@planted_crops = all_planted_crops_in_season
 	@calendar_days = (1..28).to_a
 	@crops = reject_non_season_crops(@storage.all_crops)

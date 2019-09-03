@@ -6,18 +6,103 @@ body {
 	background-image: url("/img/background.jpg")
 }
 
+/* index page */
+
+.container {
+	display: block;
+	text-align: center;
+}
+
+.index-container {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+}
+
+.banner {
+	background-image: url("/img/wood_two.jpeg");
+	color: white;
+	text-shadow: 2px 2px black;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	font-family: 'Inconsolata', monospace;
+	text-align: center;
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px black;
+	margin-top: 250px;
+}
+
+.crop-directory, .crop-planner {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 400px;
+	height: 200px;
+	margin: 60px 20px;
+	text-align: center;
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px;
+}
+
+.crop-directory {
+	float: left;
+
+}
+
+.crop-planner {
+	float: right;
+}
+
+.paragraph-index {
+	font-size: .9rem;
+	margin: 0 50px;
+}
+
+.index-img {
+	width: 34px;
+	height: 34px;
+}
+
+.index-header {
+	margin: 20px 0 10px 0;
+}
+
 /* single crop page */
 
 .single-crop-container {
-	width: 575px;
+	width: 550px;
 	display: block;
 	margin: 0 auto;
 	box-sizing: border-box;
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	max-width: 600px;
+	height: 100%;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px;
+	margin-top: 50px;
+}
+
+.single-crop-container a {
+	color: blue;
+	transition: 0.5s;
+}
+
+.single-crop-containr a:hover {
+	background-color: rgba(216,230,173,.8);
+	transition-duration: 2s;
 }
 
 .single-crop-grid-container {
 	display: grid;
-	grid-template-columns: 175px 400px;
+	grid-template-columns: 175px 350px;
 	grid-template-rows: auto;
 	grid-template-areas: "side_header header"
 																						"side_season season"
@@ -41,6 +126,9 @@ body {
 .header {
 	grid-area: header;
 	text-align: center;
+	font-size: 1.2rem;
+	color: navy;
+	text-shadow: 1px 1px white;
 }
 
 .side_header img {
@@ -52,12 +140,43 @@ body {
 .side_produces, .side_sell_price, .side_seed_price {
 	color: purple;
 	text-shadow: 1px 1px white;
+	font-size: 1.2rem;
+}
+
+.season, .first_harvest, .regrow, .produces, .sell_price,
+.seed_price {
+	font-size: 1.2rem;
 }
 
 .notes p {
 	text-align: left;
 	font-size: .9rem;
 }
+
+.search-again {
+	display: block;
+	width: 250px;
+	height: 100px;
+	float: left;
+}
+
+.return-index {
+	display: block;
+	width: 250px;
+	height: 100px;
+	float: right;
+}
+
+.search-again, .return-index {
+	margin: 20px 10px;
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px;
+	text-align: center;
+}
+
 
 /* calendar page */
 
@@ -125,14 +244,24 @@ body {
 	text-align: center;
 }
 
-.add-crop-form, .delete-crop-form, h5 {
+.add-crop-form, .delete-crop-form, .change-season-form, h5 {
 	margin: 0;
 	padding: 0;
 	margin-top: 5px;
 	padding-bottom: 10px;
+	text-align: center;
 }
 
 .delete-crop-form {
+	border-bottom: 3px solid black;
+	text-align: center;
+}
+
+.change-season-form {
+	border-bottom: 3px solid black;
+}
+
+.icon-middle a {
 	text-align: center;
 }
 
@@ -165,6 +294,28 @@ body {
 	text-align: left;
 	margin-right: 25px;
 	margin-left: 10px;
+	text-decoration: none;
+}
+
+.season-option {
+	display: inline;
+}
+
+.season-option a {
+	color: blue;
+	transition: 0.5s;
+}
+
+.season-option a:hover {
+	color: #888B1A;
+	transition-duration: 2s;
+}
+
+.form-list a {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	display: inline-block;
 }
 
 .calendar-day {
@@ -184,7 +335,7 @@ body {
 .produce-name {
 	margin: 0;
 	padding-left: 5px;
-	font-size: .7rem;
+	font-size: .8rem;
 	text-align: left;
 	display: inline-block;
 }

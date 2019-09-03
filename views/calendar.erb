@@ -69,6 +69,26 @@
 					<input type="submit" value="Delete Crops">
 				</form>
 			</div>
+			<div class="change-season-form">
+				<h5>Change Season</h5>
+				<ul class="form-list">
+					<% @seasons.each do |season| %>
+					 <% if season != @season %>
+						<li class="season-option">
+							<a href="/calendar/<%= season.downcase %>"><%= season %></a>
+						</li>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
+			<div class="return-home-form">
+				<h5>Return to Index</h5>
+				<ul class="form-list">
+					<li style="text-align: center;">
+						<a href="/"><img src="/img/player.png"></a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
