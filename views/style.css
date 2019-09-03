@@ -72,9 +72,9 @@ body {
 	grid-template-columns: 175px 175px 175px 175px 175px 175px 175px;
 	grid-template-rows: 175px 175px 175px 175px;
 	background-color: rgba(173,216,230,.8);
-	border-bottom: 2px solid black;
-	border-right: 2px solid black;
-	border-radius: 5px;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-radius: 8px;
 	box-shadow: 1px 2px;
 }
 
