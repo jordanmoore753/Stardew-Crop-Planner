@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+body {
+	font-size: 24px;
+	font-family: monospace;
+	background-image: url("/img/background.jpg")
+}
+
+/* single crop page */
+
+.single-crop-container {
+	width: 575px;
+	display: block;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.single-crop-grid-container {
+	display: grid;
+	grid-template-columns: 175px 400px;
+	grid-template-rows: auto;
+	grid-template-areas: "side_header header"
+																						"side_season season"
+																						"side_first first_harvest"
+																						"side_regrow regrow"
+																						"side_produces produces"
+																						"side_sell_price sell_price"
+																						"side_seed_price seed_price"
+																						"side-notes notes";
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	max-width: 600px;
+	height: 100%;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px;
+	align-items: center;
+	text-align: center;
+}
+
+.header {
+	grid-area: header;
+	text-align: center;
+}
+
+.side_header img {
+	display: block;
+	margin: 0 auto;
+}
+
+.side_season, .side_first, .side_regrow, 
+.side_produces, .side_sell_price, .side_seed_price {
+	color: purple;
+	text-shadow: 1px 1px white;
+}
+
+.notes p {
+	text-align: left;
+	font-size: .9rem;
+}
+
+/* calendar page */
+
+.calendar-container {
+	display: block;
+	margin: 0 auto;
+	max-width: 1225px;
+}
+
+.calendar-grid-container {
+	display: grid;
+	grid-template-columns: 175px 175px 175px 175px 175px 175px 175px;
+	grid-template-rows: 175px 175px 175px 175px;
+	background-color: rgba(173,216,230,.8);
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 1px 2px;
+}
+
+.calendar-day {
+	border: 1px solid black;
+}

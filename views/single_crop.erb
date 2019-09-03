@@ -1,0 +1,52 @@
+<div class="single-crop-container">
+	<div class="single-crop-grid-container">
+		<div class="side_header">
+			<img src="/img/<%= @img_name %>.png">
+		</div>
+		<div class="header">
+			<h2><%= @current_crop[:name] %></h2>
+		</div>
+		<div class="side_season">
+			<h4>Season</h4>
+		</div>
+		<div class="season">
+			<h4><%= convert_num_to_season(@current_crop[:season]) %></h4>
+		</div>
+		<div class="side_first">
+			<h4>Days Until Harvest</h4>
+		</div>
+		<div class="first_harvest">
+			<h4><%= @current_crop[:until_harvest] %> Days</h4>
+		</div>
+		<div class="side_regrow">
+			<h4>Days Until Regrowth</h4>
+		</div>
+		<div class="regrow">
+			<h4><%= @current_crop[:regrow] %> Days</h4>
+		</div>
+		<div class="side_produces">
+			<h4>Amount Per Pick</h4>
+		</div>
+		<div class="produces">
+			<h4><%= @current_crop[:produces] %> Product</h4>
+		</div>
+		<div class="side_sell_price">
+			<h4>Sell Price</h4>
+		</div>
+		<div class="sell_price">
+			<h4><%= @prices[:sell_price] %></h4>
+		</div>
+		<div class="side_seed_price">
+			<h4>Seed Price</h4>
+		</div>
+		<div class="seed_price">
+			<h4><%= @prices[:seed_price] %></h4>
+		</div>
+		<div class="side-notes">
+			<h4>Notes</h4>
+		</div>
+		<div class="notes">
+			<p>If Regrowth value is <strong>0</strong>, that means there is no regrowth.</p>
+		</div>
+	</div>
+</div>

@@ -35,6 +35,14 @@ class DatabasePersistence
     crops.map { |tuple| return tuple if tuple[:name] == name }
   end
 
+  def prices_single_crop(id)
+    sql = "SELECT sell_price, seed_price FROM crop_prices
+           WHERE crop_id = $1;"
+    cost = query(sql, id)
+
+    cost.map { |tuple| tuple_to_crop_hash_prices(tuple) }
+  end
+
 # planted_crop methods
 
   def all_planted_crops
@@ -99,6 +107,14 @@ class DatabasePersistence
      first_harvest: tuple["first_harvest"].to_i,
      sub_harvests: tuple["sub_harvests"].to_a,
      amount_planted: tuple["amount_planted"].to_i
+    }
+  end
+
+  def tuple_to_crop_hash_prices(tuple)
+    {id: tuple["id"], 
+     crop_id: tuple["crop_id"].to_i, 
+     sell_price: tuple["sell_price"].to_i,
+     seed_price: tuple["seed_price"].to_i
     }
   end
 end

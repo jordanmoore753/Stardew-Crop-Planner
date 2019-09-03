@@ -1,0 +1,14 @@
+<div class="calendar-container">
+	<div class="calendar-grid-container">
+		<% @calendar_days.each do |day| %>
+			<div class="calendar-day">
+				<p>This is a day!</p>
+			</div>
+		<% end %>
+	</div>
+	<div class="calendar-input">
+		<form action="/update_calendar" method="post">
+			
+		</form>
+	</div>
+</div>
