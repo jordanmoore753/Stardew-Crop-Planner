@@ -2,13 +2,73 @@
 	<div class="calendar-grid-container">
 		<% @calendar_days.each do |day| %>
 			<div class="calendar-day">
-				<p>This is a day!</p>
+				<p class="specific-day"><%= day %></p>
+				<% @planted_crops.each do |crop| %>
+					<% if crop[:first_harvest].to_i == day || crop[:sub_harvests].include?(day) %>
+						<img class="produce-img" src="/img/<%= convert_crop_name_with_space(return_crop_name(crop[:crop_id])) %>.png">
+						<p class="produce-name"><%= return_crop_name(crop[:crop_id]) %></p>
+						<p class="produce-money">$<%= return_crop_profit(crop[:crop_id], crop[:amount_planted]) %></p>
+						<br>
+						<br>
+					<% end %> 
+				<% end %>
 			</div>
 		<% end %>
 	</div>
-	<div class="calendar-input">
-		<form action="/update_calendar" method="post">
-			
-		</form>
+</div>
+<div class="header-container">
+	<h2>Stardew Valley Crop Planner</h2>
+</div>
+	<div class="form-container">
+		<div class="calendar-grid-form-container">
+			<div class="add-crop-form">
+				<h5>Add Plants</h5>
+				<form action="/add_crop_calendar" method="post">
+					<ul class="form-list">
+						<li>Crop Name: 
+							<select name="crop_name" required>
+							<% @crops.each do |crop| %>
+								<option><%= crop[:name] %></option>
+							<% end %>
+							</select>
+						</li>
+						<li>Planting Date:
+							<select name="plant_date" required>
+								<% available_planting_days.each do |num| %>
+									<option><%= num %></option>
+								<% end %>
+							</select>
+						</li>
+						<li>Amount Planted:
+							<input type="number" max="1000" min="1" name="amount_planted" required >
+						</li>
+					</ul>
+					<input type="submit" value="Add Crop">
+				</form>
+			</div>
+			<div class="delete-crop-form">
+				<form action="/<%= @season %>/delete_single_crop" method="post">
+					<h5>Remove Plants</h5>
+					<ul class="form-list">
+						<li style="text-align: center;">
+							Crop Name:
+							<select name="id">
+								<% @planted_crops.each do |crop| %>
+									<option value="<%= crop[:id] %>"><%= return_crop_name(crop[:crop_id]) %>, First Harvest: <%= crop[:first_harvest] %></option>
+								<% end %>
+							</select>
+						</li>
+						<input style="margin: 5px 0;" type="submit" value="Delete Single Crop">
+					</ul>
+				</form>
+				<p class="or"><strong>or</strong></p>
+				<form action="/<%= @season %>/delete_season_crops" method="post">
+					<ul class="form-list">
+						<li style="text-align: center;">Delete All Crops</li>
+					</ul>
+					<input type="submit" value="Delete Crops">
+				</form>
+			</div>
+		</div>
 	</div>
 </div>

@@ -63,21 +63,151 @@ body {
 
 .calendar-container {
 	display: block;
-	margin: 0 auto;
-	max-width: 1225px;
+	max-width: 1400px;
+	height: 800px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
 }
 
 .calendar-grid-container {
 	display: grid;
-	grid-template-columns: 175px 175px 175px 175px 175px 175px 175px;
-	grid-template-rows: 175px 175px 175px 175px;
+	grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+	grid-template-rows: 200px 200px 200px 200px;
 	background-color: rgba(173,216,230,.8);
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-radius: 5px;
 	box-shadow: 1px 2px;
 }
+	
+.header-container {
+	font-family: 'Inconsolata', monospace;
+	color: white;
+	display: block;
+	float: right;
+	max-width: 400px;
+	height: 125px;
+	margin-top: 20px;
+	margin-right: 30px; 
+	background-color: rgba(173,216,230,.8);
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 2px black;
+	text-align: center;
+	text-shadow: 1px 1px black;
+}
+
+.form-container {
+	display: block;
+	max-width: 400px;
+	height: 750px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 35px;
+}
+
+.calendar-grid-form-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 185px;
+	margin-top: 10px;
+	background-color: rgba(234,245,152, .9);
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 2px;
+}
+
+.add-crop-form {
+	border-bottom: 3px solid black;
+	text-align: center;
+}
+
+.add-crop-form, .delete-crop-form, h5 {
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+	padding-bottom: 10px;
+}
+
+.delete-crop-form {
+	text-align: center;
+}
+
+.delete-paragraph {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 25px;
+	font-size: 1rem;
+	display: inline-block;
+}
+
+.or {
+	margin: 0;
+	padding: 10px 0;
+	font-size: .9rem;
+}
+
+.form-list {
+	list-style-type: none;
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+	margin-left: 10px;
+}
+
+.form-list li {
+	margin: 0;
+	padding: 3px;
+	font-size: 1rem;
+	text-align: left;
+	margin-right: 25px;
+	margin-left: 10px;
+}
 
 .calendar-day {
 	border: 1px solid black;
+	font-size: 0;
+}
+
+.specific-day {
+	margin: 0;
+	padding: 0;
+	font-size: .9rem;
+	text-align: left;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.produce-name {
+	margin: 0;
+	padding-left: 5px;
+	font-size: .7rem;
+	text-align: left;
+	display: inline-block;
+}
+
+.produce-img {
+	margin: 0;
+	padding: 0;
+	padding-left: 3px;
+	margin-top: 3px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.produce-money {
+	margin: 0;
+	padding: 0;
+	padding-left: 3px;
+	margin-top: 7px;
+	display: inline-block;
+	font-size: .75rem;
+	float: right;
+	margin-right: 10px;
+	color: green;
+	text-shadow: .5px 0 darkgreen;
 }

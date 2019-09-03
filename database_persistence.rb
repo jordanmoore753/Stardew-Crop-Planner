@@ -35,6 +35,11 @@ class DatabasePersistence
     crops.map { |tuple| return tuple if tuple[:name] == name }
   end
 
+  def single_crop_by_id(id)
+    crops = all_crops
+    crops.map { |tuple| return tuple if tuple[:id].to_i == id }
+  end
+
   def prices_single_crop(id)
     sql = "SELECT sell_price, seed_price FROM crop_prices
            WHERE crop_id = $1;"
@@ -68,7 +73,7 @@ class DatabasePersistence
           VALUES ($1, $2, $3, $4, $5, $6);"
 
     query(sql, values[0], values[1], values[2],
-          values[3], values[4], values[5])
+          values[3], values[4][0..-1], values[5])
 
     # @values = ["5", "1", "1", "11", "{NULL}", "23"] crop without regrow
     # ["5", "1", "1", "11", "{14, 17, 20, 23}", "23"] crop with regrow
@@ -82,6 +87,11 @@ class DatabasePersistence
   def delete_single_planted_crop(id)
     sql = "DELETE FROM planted_crops WHERE id = $1;"
     query(sql, id)
+  end
+
+  def delete_all_planted_crops_from_season(season)
+    sql = "DELETE FROM planted_crops WHERE season_id = $1;"
+    query(sql, season)
   end
 
   private
