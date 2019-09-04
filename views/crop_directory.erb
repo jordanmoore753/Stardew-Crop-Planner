@@ -1,0 +1,25 @@
+<div class="crop-directory-container">
+	<div class="crop-dir-header">
+		<h3 class="crop-dir-heading">Crop Directory Search</h3>
+	</div>
+	<div class="crop-dir-search-box">
+		<p class="crop-dir-paragraph">Choose the plant you are interested in learning more about from the following dropdown list.</p>
+		<div class="crop-search-form">
+			<form action="/crops/selection" method="get">
+				<select name="crop_name">
+					<% @crops.each do |crop| %>
+						<option><%= crop[:name] %></option>
+					<% end %>
+				</select>
+				<input type="submit" value="Search">
+			</form>
+		</div>
+			<p class="crop-dir-paragraph"><b>Note:</b> The following plants are not included: <em>Sweet Gem Berry</em> and <em>Ancient Fruit</em>.</p>
+	</div>
+	<div class="crop-dir-return-box">
+		<h4 class="crop-dir-return">Return to Index</h4>
+		<a href="/">
+			<img class="return-img-icon" src="/img/player.png">
+		</a>
+	</div>
+</div>

@@ -8,11 +8,6 @@ body {
 
 /* index page */
 
-.container {
-	display: block;
-	text-align: center;
-}
-
 .index-container {
 	display: block;
 	margin: 0 auto;
@@ -71,6 +66,60 @@ body {
 
 .index-header {
 	margin: 20px 0 10px 0;
+}
+
+/* crop directory page */
+
+.crop-directory-container {
+	display: block;
+	margin: 0 auto;
+	width: 40%;
+}
+
+.crop-dir-header, .crop-dir-search-box, .crop-dir-return-box {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px;
+	margin: 20px 0;
+}
+
+.crop-dir-header {
+	margin-top: 200px;
+}
+
+.crop-dir-heading {
+	text-align: center;
+	text-shadow: 1px 1px white;
+}
+
+.crop-dir-paragraph {
+	font-size: .9rem;
+	margin-left: 20px;
+}
+
+.crop-search-form {
+	display: block;
+	margin: 0 auto;
+	width: 35%;
+	margin-bottom: 10px;
+}
+
+.crop-dir-return {
+	text-align: center;
+	text-shadow: 1px 1px white;
+	padding: 10px;
+	margin: 0;
+}
+
+.return-img-icon {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 12px;
 }
 
 /* single crop page */
@@ -177,7 +226,6 @@ body {
 	text-align: center;
 }
 
-
 /* calendar page */
 
 .calendar-container {
@@ -230,7 +278,7 @@ body {
 .calendar-grid-form-container {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 185px;
+	grid-template-rows: 210px;
 	margin-top: 10px;
 	background-color: rgba(234,245,152, .9);
 	border-bottom: 2px solid black;
@@ -361,4 +409,11 @@ body {
 	margin-right: 10px;
 	color: green;
 	text-shadow: .5px 0 darkgreen;
+}
+
+.idx-return-heading {
+	padding-bottom: 0;
+	text-align: center;
+	text-shadow: 2px 2px white;
+}
 }

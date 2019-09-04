@@ -25,6 +25,9 @@
 				<h5>Add Plants</h5>
 				<form action="/add_crop_calendar" method="post">
 					<ul class="form-list">
+						<li>Current Season:
+							<%= @season %>
+						</li>
 						<li>Crop Name: 
 							<select name="crop_name" required>
 							<% @crops.each do |crop| %>
@@ -82,7 +85,7 @@
 				</ul>
 			</div>
 			<div class="return-home-form">
-				<h5>Return to Index</h5>
+				<h5 class="idx-return-heading">Return to Index</h5>
 				<ul class="form-list">
 					<li style="text-align: center;">
 						<a href="/"><img src="/img/player.png"></a>

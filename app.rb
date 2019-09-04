@@ -145,15 +145,13 @@ after do
 end
 
 get "/" do
-
 	erb :index
 end
 
-get "/crops/:name" do 
-	current_crop_name = convert_param_crop_name(params[:name])
-	@current_crop = @storage.single_crop(current_crop_name)
+get "/crops/selection" do 
+	@current_crop = @storage.single_crop(params[:crop_name])
 	@prices = @storage.prices_single_crop(@current_crop[:id])[0]
-	@img_name = convert_crop_name_img(current_crop_name)
+	@img_name = convert_crop_name_img(params[:crop_name])
 	erb :single_crop
 end
 
@@ -165,6 +163,12 @@ get "/calendar/:season" do
 	@crops = reject_non_season_crops(@storage.all_crops)
 	
 	erb :calendar
+end
+
+get "/crop_directory" do
+	@crops = @storage.all_crops
+
+	erb :crop_directory
 end
 
 post "/add_crop_calendar" do 
