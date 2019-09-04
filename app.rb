@@ -44,6 +44,10 @@ helpers do
 		name.split(' ').join('_')
 	end
 
+	def convert_number_to_string(num)
+		num.to_s.reverse.scan(/\d{1,3}/).join(',').reverse
+	end
+
 	def create_array_of_crop_values(tuple)
 		tuple.values
 	end
@@ -83,6 +87,11 @@ helpers do
 		@storage.single_crop_by_id(id)[:name]
 	end
 
+	def return_crop_name_reduce_name(id)
+		name = @storage.single_crop_by_id(id)[:name]
+		name.length > 6 ? name[0...5] + "..." : name
+	end
+
 	def return_crop_id(name)
 		@storage.single_crop(name)[:id]
 	end
@@ -91,6 +100,31 @@ helpers do
 		sell_price = @storage.prices_single_crop(id)[0][:sell_price]
 		amount_per_pick = @storage.single_crop_by_id(id)[:produces]
 		sell_price * amount_per_pick * amount
+	end
+
+	def return_seed_cost(id, amount)
+		seed_price = @storage.prices_single_crop(id)[0][:seed_price]
+		seed_price * amount
+	end
+
+	def return_total_crop_gross
+		total = 0
+		@planted_crops.each do |t| 
+			gross = (return_crop_profit(t[:crop_id], t[:amount_planted]))
+			if !t[:first_harvest].zero? &&  !t[:sub_harvests][0].zero?
+				gross *= t[:sub_harvests].size + 1
+			elsif t[:first_harvest].zero?
+				gross = 0
+			end
+			total += gross
+		end
+		total
+	end
+
+	def return_total_seed_cost
+		@planted_crops.map do |t|
+			return_seed_cost(t[:crop_id], t[:amount_planted])
+		end.reduce(:+)
 	end
 
 	def return_season_id(name)
@@ -105,7 +139,7 @@ helpers do
 
 	def return_sub_harvests(name, first_harvest)
 		regrow_int = @storage.single_crop(name)[:regrow]
-		return 0 if regrow_int.zero?
+		return 0 if regrow_int.zero? || first_harvest.zero?
 
 		sub_harvests = []
 
@@ -161,7 +195,8 @@ get "/calendar/:season" do
 	@planted_crops = all_planted_crops_in_season
 	@calendar_days = (1..28).to_a
 	@crops = reject_non_season_crops(@storage.all_crops)
-	
+	@gross = return_total_crop_gross
+	@cost = return_total_seed_cost
 	erb :calendar
 end
 

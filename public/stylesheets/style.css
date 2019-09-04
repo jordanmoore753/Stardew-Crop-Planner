@@ -228,6 +228,43 @@ body {
 
 /* calendar page */
 
+.banner-container-cal {
+	display: block;
+	width: 300px;
+	height: 80px;
+	background-image: url("/img/wood_two.jpeg");
+	float: left;
+	margin-top: 14px;
+	margin-left: 22px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 2px black;
+	color: white;
+	text-shadow: 1px 2px black;
+	text-align: center;
+}
+
+.banner-profit-container {
+	display: block;
+	width: 300px;
+	height: 80px;
+	background-image: url("/img/wood_two.jpeg");
+	float: right;
+	margin-top: 14px;
+	margin-right: 55px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 2px black;
+	color: white;
+}
+
+.banner-container-heading {
+	padding: 0;
+	margin: 15px;
+}
+
 .calendar-container {
 	display: block;
 	max-width: 1400px;
@@ -277,8 +314,10 @@ body {
 
 .calendar-grid-form-container {
 	display: grid;
+	width: 390px;
+	height: 640px;
 	grid-template-columns: 1fr;
-	grid-template-rows: 210px;
+	grid-template-rows: 265px 215px 35px 35px;
 	margin-top: 10px;
 	background-color: rgba(234,245,152, .9);
 	border-bottom: 2px solid black;
@@ -287,17 +326,19 @@ body {
 	box-shadow: 1px 2px;
 }
 
-.add-crop-form {
-	border-bottom: 3px solid black;
-	text-align: center;
-}
-
-.add-crop-form, .delete-crop-form, .change-season-form, h5 {
+.add-crop-form, .delete-crop-form, .change-season-form,
+.return-home-form, h5 {
 	margin: 0;
 	padding: 0;
 	margin-top: 5px;
-	padding-bottom: 10px;
+	padding-bottom: 7px;
 	text-align: center;
+}
+
+.add-crop-form {
+	border-bottom: 3px solid black;
+	text-align: center;
+	padding-bottom: 35px;
 }
 
 .delete-crop-form {
@@ -306,7 +347,9 @@ body {
 }
 
 .change-season-form {
+	height: 65px;
 	border-bottom: 3px solid black;
+	padding: 0;
 }
 
 .icon-middle a {
@@ -343,6 +386,11 @@ body {
 	margin-right: 25px;
 	margin-left: 10px;
 	text-decoration: none;
+}
+
+.input-calendar {
+	width: 100%;
+	margin: 2px 0;
 }
 
 .season-option {
@@ -383,7 +431,7 @@ body {
 .produce-name {
 	margin: 0;
 	padding-left: 5px;
-	font-size: .8rem;
+	font-size: .7rem;
 	text-align: left;
 	display: inline-block;
 }
@@ -411,9 +459,32 @@ body {
 	text-shadow: .5px 0 darkgreen;
 }
 
+#produce_amount {
+	font-size: .1rem;
+}
+
 .idx-return-heading {
 	padding-bottom: 0;
 	text-align: center;
 	text-shadow: 2px 2px white;
+	margin-top: 15px;
 }
+
+.return-home-form {
+	margin-top: 35px;
+}
+
+.banner-profit-cal {
+	text-align: left;
+	padding: 0;
+	font-weight: bold;
+	font-size: 1.3rem;
+	margin: 26px 0;
+	margin-left: 15px;
+	text-shadow: 2px 2px black;
+}
+
+.profit-number {
+	color: #00ff00;
+	text-shadow: 1px 1px black;
 }
