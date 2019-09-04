@@ -19,7 +19,7 @@ class AppTest < Minitest::Test
 	end
 
 	def test_single_crop
-		get "/crops/blue_jazz"
+		get "/crops/selection?crop_name=Blue+Jazz"
 
 		assert_includes last_response.body, "Blue Jazz"
 		assert_includes last_response.body, "Spring"
@@ -40,5 +40,19 @@ class AppTest < Minitest::Test
 
 		assert_includes last_response.body, "<option>Blueberry</option>"
 		assert_includes last_response.body, "<option>Wheat</option>"
+	end
+
+	def test_add_crop
+		@season = "fall"
+		remove_all_planted_crops(@season)
+
+		post "/add_crop_calendar", params = { "crop_name" => "Amaranth",
+																					"plant_date" => "3"
+																					"amount" => "40" }
+
+		get last_response["Location"]
+
+		assert_includes last_response.body, "Amara... x40"
+		assert_includes last_response.body, "$6000"
 	end
 end

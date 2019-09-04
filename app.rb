@@ -45,6 +45,7 @@ helpers do
 	end
 
 	def convert_number_to_string(num)
+		return "0" if num.nil? || num.zero?
 		num.to_s.reverse.scan(/\d{1,3}/).join(',').reverse
 	end
 
@@ -108,6 +109,8 @@ helpers do
 	end
 
 	def return_total_crop_gross
+		return 0 if @planted_crops.size.zero?
+
 		total = 0
 		@planted_crops.each do |t| 
 			gross = (return_crop_profit(t[:crop_id], t[:amount_planted]))
@@ -122,6 +125,8 @@ helpers do
 	end
 
 	def return_total_seed_cost
+		return 0 if @planted_crops.size.zero?
+
 		@planted_crops.map do |t|
 			return_seed_cost(t[:crop_id], t[:amount_planted])
 		end.reduce(:+)
@@ -167,6 +172,10 @@ helpers do
 
 	def add_planted_crop_to_db(str)
 		@storage.add_planted_crop(str)
+	end
+
+	def remove_all_planted_crops(season)
+		@storage.delete_all_planted_crops_from_season(season)
 	end
 end
 
@@ -227,7 +236,6 @@ end
 post "/:season/delete_single_crop" do
 	season = convert_season_to_num(params[:season]) 
 	id = params[:id]
-
 	@storage.delete_single_planted_crop(id)
 
 	redirect "/calendar/#{params[:season]}" 
@@ -235,7 +243,6 @@ end
 
 post "/:season/delete_season_crops" do 
 	season = convert_season_to_num(params[:season].downcase)
-
 	@storage.delete_all_planted_crops_from_season(season)
 
 	redirect "/calendar/#{params[:season]}"
