@@ -1,3 +1,27 @@
+<div class="mobile-container-banner">
+	<div class="banner-container-cal">
+		<div class="banner-links-container">
+		<ul class="banner-links">
+			<li class="banner-container-link">
+				<a href="/calendar/<%= display_before_season %>"><<</a>
+			</li>
+			<li class="banner-container-heading"><%= @season %></li>
+			<li class="banner-container-link">
+				<a href="/calendar/<%= display_after_season %>">>></a>
+			</li>	
+		</ul>
+	</div>
+	</div>
+	<div class="header-container">
+		<div class="banner-container-heading">
+			<h2 class="banner-heading">Stardew Valley Crop Planner</h2>
+		</div>
+	</div>
+	<div class="banner-profit-container">
+		<p class="banner-profit-cal">Profit: <span class="profit-number">$<%= @profit %></span></p>
+	</div>	
+</div>
+
 <div class="calendar-container">
 	<div class="calendar-grid-container">
 		<% @calendar_days.each do |day| %>
@@ -16,16 +40,13 @@
 		<% end %>
 	</div>
 </div>
-<div class="header-container">
-	<h2>Stardew Valley Crop Planner</h2>
-</div>
 	<div class="form-container">
 		<div class="calendar-grid-form-container">
 			<div class="add-crop-form">
 				<h5>Add Plants</h5>
 				<form action="/add_crop_calendar" method="post">
 					<ul class="form-list">
-						<li>Crop Name</li>
+						<li class="input-label-item">Crop Name</li>
 						<li>
 							<select class="input-calendar" name="crop_name" required>
 								<% @crops.each do |crop| %>
@@ -33,7 +54,7 @@
 								<% end %>
 							</select>
 						</li>
-						<li>Date Planted</li>
+						<li class="input-label-item">Date Planted</li>
 						<li>
 							<select class="input-calendar" name="plant_date" required>
 								<% available_planting_days.each do |num| %>
@@ -41,7 +62,7 @@
 								<% end %>
 							</select>
 						</li>
-						<li>Amount Planted</li>
+						<li class="input-label-item">Amount Planted</li>
 						<li>
 							<input class="input-calendar" type="number" max="1000" min="1" name="amount_planted" required >
 						</li>
@@ -53,7 +74,7 @@
 				<form action="/<%= @season %>/delete_single_crop" method="post">
 					<h5>Remove Plants</h5>
 					<ul class="form-list">
-						<li>Crop Name</li>
+						<li class="input-label-item">Crop Name</li>
 						<li>
 							<select class="input-calendar" name="id">
 								<% @planted_crops.each do |crop| %>
@@ -61,33 +82,23 @@
 								<% end %>
 							</select>
 						</li>
-						<li>
+						<li class="input-label-item">
 							<input class="input-calendar" type="submit" value="Delete Single Crop">
 						</li>
 					</ul>
 				</form>
 				<form action="/<%= @season %>/delete_season_crops" method="post">
 					<ul class="form-list">
-						<li>Delete All Crops</li>
+						<li class="input-label-item">Delete All Crops</li>
 						<li>
 							<input class="input-calendar" type="submit" value="Delete Crops">
 						</li>
 					</ul>
 				</form>
 			</div>
-			<div class="change-season-form">
-				<h5>Change Season</h5>
-				<ul class="form-list">
-					<% @seasons.each do |season| %>
-					 <% if season != @season %>
-						<li class="season-option">
-							<a href="/calendar/<%= season.downcase %>"><%= season %></a>
-						</li>
-						<% end %>
-					<% end %>
-				</ul>
-			</div>
 			<div class="return-home-form">
+				<h5>Notes</h5>
+				<p class="return-home-paragraph">To change seasons, click the "<b><<</b>" or "<b>>></b>" buttons up in the top-left of this page.</span></p>
 				<h5 class="idx-return-heading">Return to Index</h5>
 				<ul class="form-list">
 					<li style="text-align: center;">
@@ -96,12 +107,6 @@
 				</ul>
 			</div>
 		</div>
-	</div>
-	<div class="banner-container-cal">
-		<h2 class="banner-container-heading"><%= @season %></h2>
-	</div>
-	<div class="banner-profit-container">
-		<p class="banner-profit-cal">Profit: <span class="profit-number">$<%= @profit %></span></p>
 	</div>
 </div>
 

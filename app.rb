@@ -190,6 +190,22 @@ helpers do
   def remove_all_crops(season)
     @storage.delete_all_planted_crops_from_season(season)
   end
+
+  def display_before_season
+    case @season
+    when 'Spring' then 'Fall'
+    when 'Summer' then 'Spring'
+    when 'Fall' then 'Summer'
+    end
+  end
+
+  def display_after_season
+    case @season
+    when 'Spring' then 'Summer'
+    when 'Summer' then 'Fall'
+    when 'Fall' then 'Spring'
+    end
+  end
 end
 
 before do

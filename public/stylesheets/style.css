@@ -3,7 +3,9 @@
 body {
 	font-size: 24px;
 	font-family: monospace;
-	background-image: url("/img/background.jpg")
+	background-image: url("/img/background.jpg");	background-size: cover;
+		background-repeat: no-repeat;
+
 }
 
 /* index page */
@@ -11,7 +13,8 @@ body {
 .index-container {
 	display: block;
 	margin: 0 auto;
-	width: 50%;
+	width: 1000px;
+	height: 750px;
 }
 
 .banner {
@@ -73,7 +76,8 @@ body {
 .crop-directory-container {
 	display: block;
 	margin: 0 auto;
-	width: 40%;
+	width: 750px;
+	height: 750px;
 }
 
 .crop-dir-header, .crop-dir-search-box, .crop-dir-return-box {
@@ -126,11 +130,11 @@ body {
 
 .single-crop-container {
 	width: 500px;
+	height: 750px;
 	display: block;
 	margin: 0 auto;
 	box-sizing: border-box;
 	box-sizing: border-box;
-
 	margin-top: 50px;
 }
 
@@ -228,7 +232,8 @@ body {
 	display: block;
 	width: 300px;
 	height: 80px;
-	background-image: url("/img/wood_two.jpeg");
+	background-color: rgba(136,94,173,.9);
+	background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
 	float: left;
 	margin-top: 14px;
 	margin-left: 22px;
@@ -242,13 +247,15 @@ body {
 }
 
 .banner-profit-container {
+	/* 234,245,152 */
 	display: block;
 	width: 300px;
 	height: 80px;
-	background-image: url("/img/wood_two.jpeg");
+	background-color: rgba(136,94,173,.9);
+	background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
 	float: right;
 	margin-top: 14px;
-	margin-right: 55px;
+	margin-right: 485px;
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-radius: 5px;
@@ -259,6 +266,7 @@ body {
 .banner-container-heading {
 	padding: 0;
 	margin: 15px;
+	display: inline;
 }
 
 .calendar-container {
@@ -285,12 +293,12 @@ body {
 	font-family: 'Inconsolata', monospace;
 	color: white;
 	display: block;
-	float: right;
-	max-width: 400px;
-	height: 125px;
-	margin-top: 20px;
-	margin-right: 30px; 
-	background-color: rgba(173,216,230,.8);
+	float: left;
+	width: 600px;
+	height: 80px;
+	margin-top: 14px;
+	margin-left: 90px; 
+	background-image: url("/img/wood_two.jpeg");
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-radius: 5px;
@@ -302,31 +310,32 @@ body {
 .form-container {
 	display: block;
 	max-width: 400px;
-	height: 750px;
+	height: 900px;
 	float: right;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-right: 35px;
 }
 
 .calendar-grid-form-container {
 	display: grid;
 	width: 390px;
-	height: 640px;
+	height: 740px;
 	grid-template-columns: 1fr;
-	grid-template-rows: 265px 215px 35px 35px;
+	grid-template-rows: 285px 235px 285px;
 	margin-top: 10px;
-	background-color: rgba(234,245,152, .9);
+	background-color: rgba(136,94,173,.85);
+	background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-radius: 5px;
 	box-shadow: 1px 2px;
 }
 
-.add-crop-form, .delete-crop-form, .change-season-form,
+.add-crop-form, .delete-crop-form,
 .return-home-form, h5 {
 	margin: 0;
 	padding: 0;
-	margin-top: 5px;
+	margin-top: 10px;
 	padding-bottom: 7px;
 	text-align: center;
 }
@@ -340,12 +349,6 @@ body {
 .delete-crop-form {
 	border-bottom: 3px solid black;
 	text-align: center;
-}
-
-.change-season-form {
-	height: 65px;
-	border-bottom: 3px solid black;
-	padding: 0;
 }
 
 .icon-middle a {
@@ -462,12 +465,8 @@ body {
 .idx-return-heading {
 	padding-bottom: 0;
 	text-align: center;
-	text-shadow: 2px 2px white;
+	text-shadow: 1px 1px white;
 	margin-top: 15px;
-}
-
-.return-home-form {
-	margin-top: 35px;
 }
 
 .banner-profit-cal {
@@ -483,4 +482,141 @@ body {
 .profit-number {
 	color: #00ff00;
 	text-shadow: 1px 1px 2px black;
+}
+
+.banner-links {
+	list-style-type: none;
+	display: inline;
+	margin: 0;
+	padding: 0;
+	margin-top: 30px;
+	height: 30px;
+	top: 30px;
+}
+
+.banner-container-link a {
+	text-decoration: none;
+	font-size: 2rem;
+	color: white;
+	display: inline;
+}
+
+.banner-container-link li {
+	display: inline-block;
+	font-size: 2.5rem;
+	margin: 0;
+	padding: 0;
+	margin-top: 40px;
+}
+
+.banner-container-link {
+	display: inline;
+}
+
+.banner-heading {
+	margin: 18px 0 0 0;
+	padding: 0;
+}
+
+.banner-container-heading {
+	margin: 15px 0 0 0;
+	padding: 0;
+}
+
+.banner-links-container {
+	margin: 15px 0 0 0;
+}
+
+.return-home-paragraph {
+	font-size: 1rem;
+	text-align: left;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
+.input-label-item {
+	color: white;
+	font-weight: bold;
+	text-shadow: 2px 1px black;
+}
+
+/* media query, smaller page (up to 1400px) */
+
+@media only screen and (max-width: 1879px) {
+		.banner-container-cal {
+				border-bottom: 2px solid black;
+				border-right: 2px solid black;
+				border-radius: 5px;
+				box-shadow: 1px 2px black;
+				color: white;
+				text-shadow: 1px 2px black;
+				text-align: center;
+				margin: 0;
+		}
+
+		.banner-links-container {
+				margin: 15px 0 0 0;
+			}
+
+		.banner-profit-container {
+				border-bottom: 2px solid black;
+				border-right: 2px solid black;
+				border-radius: 5px;
+				box-shadow: 1px 2px black;
+				margin: 0;
+				padding: 0;
+				float: none;
+		}
+
+		.form-container {
+				display: block;
+				float: left;
+				width: 1400px;
+				height: 300px;
+				margin: 15px 0 0 115px;
+		}
+
+		.calendar-grid-form-container {
+				display: grid;
+				grid-template-columns: 320px 320px 400px;
+				grid-template-rows: 260px;
+				margin: 0;
+				grid-gap: 50px 50px;
+				height: 0;
+				margin-left: 20px;
+			}
+
+		.add-crop-form, .delete-crop-form,
+		.return-home-form {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			background-color: rgba(234,245,152,.9);
+			background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
+			border-bottom: 2px solid black;
+			border-right: 2px solid black;
+			border-radius: 5px;
+			box-shadow: 1px 2px;
+		}
+
+		.mobile-container-banner {
+			display: grid;
+			grid-template-columns: 300px 600px 300px;
+			grid-template-rows: 80px;
+			grid-gap: 98px 98px;
+			margin-left: 20px;
+		}
+
+		.header-container {
+			float: none;
+			margin: 0;
+		}
+
+		.idx-return-heading {
+			margin-top: 30px;
+		}
+
+		.return-home-paragraph {
+			margin-top: 25px;
+		}
 }
