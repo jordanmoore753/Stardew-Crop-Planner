@@ -30,6 +30,12 @@ Current_day variable is set equal to the value of the first_harvest (which is eq
 7. amount integer NOT NULL
 
 ```sql
+CREATE TABLE users (
+id serial PRIMARY KEY,
+name text NOT NULL UNIQUE,
+password text NOT NULL
+);
+
 CREATE TABLE seasons (
 id serial PRIMARY KEY,
 name text NOT NULL UNIQUE
@@ -58,11 +64,12 @@ season_id integer NOT NULL,
 planted_on integer,
 first_harvest integer,
 sub_harvests integer[],
-amount_planted integer NOT NULL
+amount_planted integer NOT NULL,
+user_id integer REFERENCES users (id) ON DELETE CASCADE
 );
 
-INSERT INTO planted_crops (crop_id, season_id, planted_on, first_harvest, sub_harvests, amount_planted)
-VALUES (5, 1, 1, 11, ARRAY [14, 17, 20, 23, 26], 23);
+INSERT INTO planted_crops (crop_id, season_id, planted_on, first_harvest, sub_harvests, amount_planted, user_id)
+VALUES (5, 1, 1, 11, ARRAY [14, 17, 20, 23, 26], 23, 1);
 /* insertions */
 
 INSERT INTO seasons (name)

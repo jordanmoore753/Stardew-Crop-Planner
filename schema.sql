@@ -1,3 +1,9 @@
+CREATE TABLE users (
+id serial PRIMARY KEY,
+name text NOT NULL UNIQUE,
+password text NOT NULL
+);
+
 CREATE TABLE seasons (
 id serial PRIMARY KEY,
 name text NOT NULL UNIQUE
@@ -26,7 +32,8 @@ season_id integer NOT NULL,
 planted_on integer,
 first_harvest integer,
 sub_harvests integer[],
-amount_planted integer NOT NULL
+amount_planted integer NOT NULL,
+user_id integer REFERENCES users (id) ON DELETE CASCADE
 );
 
 INSERT INTO seasons (name)

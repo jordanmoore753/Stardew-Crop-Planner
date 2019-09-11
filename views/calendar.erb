@@ -28,6 +28,14 @@
 			<div class="calendar-day">
 				<p class="specific-day"><%= day %></p>
 				<% @planted_crops.each do |crop| %>
+					<% if crop[:planted_on].to_i == day %>
+						<img class="produce-img" src="/img/<%= convert_crop_name_with_space(return_crop_name(crop[:crop_id])) %>.png">
+						<p class="produce-name"><%= return_crop_name_reduce_name(crop[:crop_id]) %> <span class="produce-amount">x<%= crop[:amount_planted] %></span></p>
+						<p class="produce-seed-cost">-$<%= return_seed_cost(crop[:crop_id], crop[:amount_planted]) %></p>
+					<% end %>
+					<br>
+				<% end %>
+				<% @planted_crops.each do |crop| %>
 					<% if crop[:first_harvest].to_i == day || crop[:sub_harvests].include?(day) %>
 						<img class="produce-img" src="/img/<%= convert_crop_name_with_space(return_crop_name(crop[:crop_id])) %>.png">
 						<p class="produce-name"><%= return_crop_name_reduce_name(crop[:crop_id]) %> <span class="produce-amount">x<%= crop[:amount_planted] %></span></p>

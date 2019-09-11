@@ -1,3 +1,10 @@
+<% if !session[:curr_user].nil? %>
+	<div class="logout-container">
+		<form action="/logout" method="post">
+			<input type="submit" value="Logout">
+		</form>
+	</div>
+<% end %>
 <div class="index-container">
 	<div class="banner">
 		<h1>Stardew Valley Crop Assistant</h1>

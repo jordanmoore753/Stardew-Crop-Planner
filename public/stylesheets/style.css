@@ -4,11 +4,86 @@ body {
 	font-size: 24px;
 	font-family: monospace;
 	background-image: url("/img/background.jpg");	background-size: cover;
-		background-repeat: no-repeat;
+	background-repeat: no-repeat;
 
 }
 
+/* login page */
+
+.page-login-container {
+	display: block;
+	margin: 0 auto;
+	width: 1000px;
+	height: 890px;
+}
+
+.page-login-container h2 {
+	text-shadow: 2px 1px white;
+	margin: 25px 0;
+}
+
+.login-container, .register-container {
+	display: inline-block;
+	width: 400px;
+	height: 350px;
+	margin: 200px 45px;
+	text-align: center;
+	background-color: rgba(173,216,230,.8);
+	box-sizing: border-box;
+	border: 2px solid white;
+	border-radius: 8px;
+	box-shadow: 2px 2px;
+}
+
+.login-container {
+	float: left;
+}
+
+.register-container {
+	float: right;
+}
+
+.success-msg {
+	font-size: 1.2rem;
+	color: green;
+	margin: 10px 0 0 0;
+}
+
+.error-msg {
+	font-size: 1.2rem;
+	color: red;
+	margin: 10px 0 0 0;
+}
+
+.login-explanation {
+	font-size: 1rem;
+	margin: 15px 25px;
+}
+
+.page-login-container label {
+	font-size: 1rem;
+}
+
+.page-login-container input {
+	margin: 5px 0;
+}
+
+.page-login-container input[type="submit"] {
+	margin-top: 18px;
+}
 /* index page */
+
+.logout-container {
+	position: fixed;
+	top: 10px;
+	right: 20px;
+}
+
+.logout-container input {
+	padding: 15px 30px;
+	font-size: 1.3rem;
+
+}
 
 .index-container {
 	display: block;
@@ -458,6 +533,19 @@ body {
 	text-shadow: .5px 0 darkgreen;
 }
 
+.produce-seed-cost {
+	margin: 0;
+	padding: 0;
+	padding-left: 3px;
+	margin-top: 7px;
+	display: inline-block;
+	font-size: .75rem;
+	float: right;
+	margin-right: 10px;
+	color: #FF1D1D;
+	text-shadow: .5px 0 lightgray;
+}
+
 #produce_amount {
 	font-size: .1rem;
 }
@@ -603,8 +691,8 @@ body {
 			display: grid;
 			grid-template-columns: 300px 600px 300px;
 			grid-template-rows: 80px;
-			grid-gap: 98px 98px;
-			margin-left: 20px;
+			grid-gap: 88px 98px;
+			margin-left: 0;
 		}
 
 		.header-container {
@@ -618,5 +706,10 @@ body {
 
 		.return-home-paragraph {
 			margin-top: 25px;
+		}
+
+		.calendar-container {
+			margin: 0 auto;
+			margin-top: 20px;
 		}
 }

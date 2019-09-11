@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/content_for'
 require 'tilt/erubis'
+require 'bcrypt'
 
 require_relative 'database_persistence'
 
@@ -67,7 +68,7 @@ helpers do
   end
 
   def all_planted_crops_in_season
-    @storage.all_planted_crops.select do |tuple|
+    @storage.all_planted_crops(@user_id.to_i).select do |tuple|
       convert_num_to_season(tuple[:season_id]) == @season
     end
   end
@@ -183,12 +184,12 @@ helpers do
     @storage.add_planted_crop(str)
   end
 
-  def remove_single_crop(id)
-    @storage.delete_single_planted_crop(id)
+  def remove_single_crop(id, user_id)
+    @storage.delete_single_planted_crop(id, user_id)
   end
 
-  def remove_all_crops(season)
-    @storage.delete_all_planted_crops_from_season(season)
+  def remove_all_crops(season, user_id)
+    @storage.delete_all_planted_crops_from_season(season, user_id)
   end
 
   def display_before_season
@@ -205,6 +206,34 @@ helpers do
     when 'Summer' then 'Fall'
     when 'Fall' then 'Spring'
     end
+  end
+
+  def user_doesnt_exist?(username)
+    return true if @storage.load_user_by_name(username).empty?
+    false
+  end
+
+  def add_user_to_db(username, pw)
+    @storage.add_user_to_database(username, pw)
+  end
+
+  def user_valid?(username, pw)
+    creds = @storage.load_user_by_name(username)
+    return false if creds.empty?
+
+    if creds[0][:name] == username
+      BCrypt::Password.new(creds[0][:password]) == pw
+    else
+      false
+    end
+  end
+
+  def return_user_id
+    @storage.load_user_id_by_name(session[:curr_user])
+  end
+
+  def logged_in?
+    redirect "/login" if session[:curr_user].nil?
   end
 end
 
@@ -228,18 +257,55 @@ get "/crops/selection" do
 end
 
 get "/calendar/:season" do
+  logged_in?
+  @user_id = return_user_id
   @season = params[:season].capitalize
   @seasons = ["Spring", "Summer", "Fall"]
   @planted_crops = all_planted_crops_in_season
   @calendar_days = (1..28).to_a
   @crops = reject_non_season_crops(@storage.all_crops)
   @profit = return_total_profit
+  
   erb :calendar
 end
 
 get "/crop_directory" do
   @crops = @storage.all_crops
   erb :crop_directory
+end
+
+get "/login" do
+  @yes = user_doesnt_exist?('smith')
+  @y = @storage.load_user_id_by_name('JohnnyBoy')
+  erb :login
+end
+
+post "/login" do 
+  if user_valid?(params[:username], params[:password])
+    session[:curr_user] = params[:username]
+    redirect "/calendar/spring"
+  else
+    session[:login_error] = "Invalid credentials."
+    redirect "/login"
+  end
+end
+
+post "/register" do
+  if user_doesnt_exist?(params[:username])
+    add_user_to_db(params[:username],
+                   BCrypt::Password.create(params[:password])
+                   )
+    session[:register_success] = "User created."
+  else
+    session[:register_error] = "Username is unavailable."
+
+  end
+  redirect "/login"
+end
+
+post "/logout" do
+  session.delete(:curr_user)
+  redirect "/"
 end
 
 post "/add_crop_calendar" do 
@@ -252,13 +318,15 @@ post "/add_crop_calendar" do
   season = convert_num_to_season(season_id)
   first_harvest = return_first_harvest(param_hash[:crop], param_hash[:plant_date])
   sub_harvest_array = return_sub_harvests(param_hash[:crop], first_harvest)
-  
+  user_id = return_user_id
+
   values = [crop_id, 
             season_id, 
             param_hash[:plant_date],
             first_harvest, 
             convert_sub_harvests_string(sub_harvest_array),
-            param_hash[:amount]]
+            param_hash[:amount],
+            user_id ]
 
   add_planted_crop_to_db(values)
   redirect "/calendar/#{season.downcase}"
@@ -266,12 +334,15 @@ end
 
 post "/:season/delete_single_crop" do
   id = params[:id]
-  remove_single_crop(id)
+  user_id = return_user_id
+
+  remove_single_crop(id, user_id)
   redirect "/calendar/#{params[:season]}"
 end
 
 post "/:season/delete_season_crops" do
+  user_id = return_user_id
   season = convert_season_to_num(params[:season].downcase)
-  remove_all_crops(season)
+  remove_all_crops(season, user_id)
   redirect "/calendar/#{params[:season]}"
 end
