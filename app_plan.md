@@ -157,3 +157,15 @@ VALUES (25, 150, 70),
 
 
 ```
+
+## 9/12
+
+Working on responsiveness. I can't cover all screens super well, but I can assume that people will have a phone, tablet, or laptop. The smallest width I can cover while keeping the calendar look okay is 667px. The next step up (iPad) is 1024px.
+
+667px and lower: calendar has 3 grid cells per row. 
+1024px and lower: calendar has 4 grid cells per row.
+1280px and up: calendar has 7 grid cells per row.
+
+All screen sizes: The banner will be changed to the current season but with no click arrows to navigate to other routes. The fixed nav is going to be fixed to the bottom of the screen so scrolling isn't an issue. The only reason you would need to scroll are to see certain crops in higher dates in the season.
+
+I think the nav should take up the full width for 667 and lower. Then, it should take up 667px exactly for the rest of the widths.

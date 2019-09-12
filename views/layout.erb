@@ -5,6 +5,20 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#button-one").click(function(){
+          $("#addDiv").slideToggle("slow");
+        });
+      });
+
+      $(document).ready(function(){
+        $("#button-two").click(function(){
+          $("#deleteDiv").slideToggle("slow");
+        });
+      });
+    </script>
   </head>
   <body>
   	<main>

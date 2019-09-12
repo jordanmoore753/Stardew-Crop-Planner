@@ -5,7 +5,6 @@ body {
 	font-family: monospace;
 	background-image: url("/img/background.jpg");	background-size: cover;
 	background-repeat: no-repeat;
-
 }
 
 /* login page */
@@ -303,6 +302,58 @@ body {
 
 /* calendar page */
 
+#addDiv, #deleteDiv {
+	display: none;
+}
+
+#addDiv, #deleteDiv {
+	position: fixed;
+	bottom: 37px;
+	left: 40%;
+	background-image: linear-gradient(to bottom right, #885ead, white);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+#fixed-buttons {
+	display: block;
+	clear: both;
+	width: 25%;
+	margin: 0;
+	padding: 0;
+	margin: 0 auto;
+	background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
+	border-radius: 25px;
+}
+
+#fixed-buttons ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: fixed;
+	bottom: 0px;
+	left: 50%;
+}
+
+#fixed-buttons li {
+	margin: 0;
+	padding: 0;	
+	display: inline;
+	text-align: center;
+	width: 100px;
+	margin: 0 10%;
+}
+
+#fixed-buttons a {
+	text-align: center;
+	border: none;
+	padding: 10px 10px;
+	color: white;
+	text-shadow: 1px 1px black;
+	cursor: pointer;
+	z-index: 2;
+}
+
 .banner-container-cal {
 	display: block;
 	width: 300px;
@@ -385,7 +436,7 @@ body {
 .form-container {
 	display: block;
 	max-width: 400px;
-	height: 900px;
+	height: 700px;
 	float: right;
 	margin-top: 10px;
 	margin-right: 35px;

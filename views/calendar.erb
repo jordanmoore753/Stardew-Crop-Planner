@@ -1,3 +1,13 @@
+<script>
+	function toggleDelete() {
+		var y = document.getElementById("deleteDiv");
+		if (y.style.display === "none") {
+			y.style.display = "block";
+		} else {
+			y.style.display = "none";
+		}
+	};
+</script>
 <div class="mobile-container-banner">
 	<div class="banner-container-cal">
 		<div class="banner-links-container">
@@ -117,4 +127,61 @@
 		</div>
 	</div>
 </div>
-
+<div id="fixed-buttons">
+	<ul>
+		<li>
+			<a id="button-one">+</a>
+		</li>
+		<li>
+			<a id="button-two">-</a>
+		</li>
+		<li>
+			<a id="button-three" href="/">Home</a>
+		</li>
+	</ul>
+</div>
+<div id="addDiv">
+	<form action="/add_crop_calendar" method="post">
+		<ul class="form-list">
+			<li class="input-label-item">Crop Name</li>
+			<li>
+				<select class="input-calendar" name="crop_name" required>
+					<% @crops.each do |crop| %>
+						<option><%= crop[:name] %></option>
+					<% end %>
+				</select>
+			</li>
+			<li class="input-label-item">Date Planted</li>
+			<li>
+				<select class="input-calendar" name="plant_date" required>
+					<% available_planting_days.each do |num| %>
+						<option><%= num %></option>
+					<% end %>
+				</select>
+			</li>
+			<li class="input-label-item">Amount Planted</li>
+			<li>
+				<input class="input-calendar" type="number" max="1000" min="1" name="amount_planted" required >
+			</li>
+		</ul>
+		<input type="submit" value="Add Crop">
+	</form>
+</div>
+<div id="deleteDiv">
+	<form action="/<%= @season %>/delete_single_crop" method="post">
+		<h5>Remove Plants</h5>
+		<ul class="form-list">
+			<li class="input-label-item">Crop Name</li>
+			<li>
+				<select class="input-calendar" name="id">
+					<% @planted_crops.each do |crop| %>
+						<option value="<%= crop[:id] %>"><%= return_crop_name(crop[:crop_id]) %>, First Harvest: <%= crop[:first_harvest] %></option>
+					<% end %>
+				</select>
+			</li>
+			<li class="input-label-item">
+				<input class="input-calendar" type="submit" value="Delete Single Crop">
+			</li>
+		</ul>
+	</form>
+</div>
