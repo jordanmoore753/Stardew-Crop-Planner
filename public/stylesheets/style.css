@@ -337,7 +337,7 @@ body {
 	display: none;
 	position: fixed;
 	bottom: 90px;
-	left: 51%;
+	left: 50%;
 	background-image: linear-gradient(to bottom right, #ff5747, white);
 	padding: 10px;
 	border-radius: 10px;
