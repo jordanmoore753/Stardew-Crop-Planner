@@ -5,8 +5,10 @@
     <form action="/login" method="post">
       <label>Username</label>
       <input type="text" name="username" pattern="[A-Za-z0-9]{8,}" minlength="0" maxlength="20" required>
+      <br>
       <label>Password</label>
       <input type="password" name="password" pattern="[A-Za-z0-9]{8,}" minlength="8" maxlength="20" required>
+      <br>
       <input type="submit" value="Login">
     </form>
     <% if session[:login_error] %>
@@ -21,8 +23,10 @@
     <form action="/register" method="post">
       <label>Username</label>
       <input type="text" name="username" pattern="[A-Za-z0-9]{8,}" minlength="0" maxlength="20" required>
+      <br>
       <label>Password</label>
       <input type="password" name="password" pattern="[A-Za-z0-9]{8,}" minlength="8" maxlength="20" required>
+      <br>
       <input type="submit" value="Register">
     </form>
     <% if session[:register_error] %>

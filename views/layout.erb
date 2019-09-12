@@ -10,23 +10,13 @@
       $(document).ready(function(){
         $("#button-one").click(function(){
           $("#addDiv").fadeToggle(300);
+          $("#addDivInfo").slideToggle(300);
         });
       });
 
       $(document).ready(function(){
         $("#button-two").click(function(){
           $("#deleteDiv").fadeToggle(300);
-        });
-      });
-
-      $(document).ready(function(){
-        $("#button-one").hover(function(){
-          $("#addDivInfo").slideToggle(300);
-        });
-      });
-
-      $(document).ready(function(){
-        $("#button-two").hover(function(){
           $("#deleteDivInfo").slideToggle(300);
         });
       });
