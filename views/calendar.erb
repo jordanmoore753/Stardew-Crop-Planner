@@ -1,37 +1,3 @@
-<script>
-	function toggleDelete() {
-		var y = document.getElementById("deleteDiv");
-		if (y.style.display === "none") {
-			y.style.display = "block";
-		} else {
-			y.style.display = "none";
-		}
-	};
-</script>
-<div class="mobile-container-banner">
-	<div class="banner-container-cal">
-		<div class="banner-links-container">
-		<ul class="banner-links">
-			<li class="banner-container-link">
-				<a href="/calendar/<%= display_before_season %>"><<</a>
-			</li>
-			<li class="banner-container-heading"><%= @season %></li>
-			<li class="banner-container-link">
-				<a href="/calendar/<%= display_after_season %>">>></a>
-			</li>	
-		</ul>
-	</div>
-	</div>
-	<div class="header-container">
-		<div class="banner-container-heading">
-			<h2 class="banner-heading">Stardew Valley Crop Planner</h2>
-		</div>
-	</div>
-	<div class="banner-profit-container">
-		<p class="banner-profit-cal">Profit: <span class="profit-number">$<%= @profit %></span></p>
-	</div>	
-</div>
-
 <div class="calendar-container">
 	<div class="calendar-grid-container">
 		<% @calendar_days.each do |day| %>
@@ -58,86 +24,30 @@
 		<% end %>
 	</div>
 </div>
-	<div class="form-container">
-		<div class="calendar-grid-form-container">
-			<div class="add-crop-form">
-				<h5>Add Plants</h5>
-				<form action="/add_crop_calendar" method="post">
-					<ul class="form-list">
-						<li class="input-label-item">Crop Name</li>
-						<li>
-							<select class="input-calendar" name="crop_name" required>
-								<% @crops.each do |crop| %>
-									<option><%= crop[:name] %></option>
-								<% end %>
-							</select>
-						</li>
-						<li class="input-label-item">Date Planted</li>
-						<li>
-							<select class="input-calendar" name="plant_date" required>
-								<% available_planting_days.each do |num| %>
-									<option><%= num %></option>
-								<% end %>
-							</select>
-						</li>
-						<li class="input-label-item">Amount Planted</li>
-						<li>
-							<input class="input-calendar" type="number" max="1000" min="1" name="amount_planted" required >
-						</li>
-					</ul>
-					<input type="submit" value="Add Crop">
-				</form>
-			</div>
-			<div class="delete-crop-form">
-				<form action="/<%= @season %>/delete_single_crop" method="post">
-					<h5>Remove Plants</h5>
-					<ul class="form-list">
-						<li class="input-label-item">Crop Name</li>
-						<li>
-							<select class="input-calendar" name="id">
-								<% @planted_crops.each do |crop| %>
-									<option value="<%= crop[:id] %>"><%= return_crop_name(crop[:crop_id]) %>, First Harvest: <%= crop[:first_harvest] %></option>
-								<% end %>
-							</select>
-						</li>
-						<li class="input-label-item">
-							<input class="input-calendar" type="submit" value="Delete Single Crop">
-						</li>
-					</ul>
-				</form>
-				<form action="/<%= @season %>/delete_season_crops" method="post">
-					<ul class="form-list">
-						<li class="input-label-item">Delete All Crops</li>
-						<li>
-							<input class="input-calendar" type="submit" value="Delete Crops">
-						</li>
-					</ul>
-				</form>
-			</div>
-			<div class="return-home-form">
-				<h5>Notes</h5>
-				<p class="return-home-paragraph">To change seasons, click the "<b><<</b>" or "<b>>></b>" buttons up in the top-left of this page.</span></p>
-				<h5 class="idx-return-heading">Return to Index</h5>
-				<ul class="form-list">
-					<li style="text-align: center;">
-						<a href="/"><img src="/img/player.png"></a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
 <div id="fixed-buttons">
 	<ul>
+		<div class="fixed-button-season">
+			<ul class="season-ul" style="display: flex; flex-direction: row;">
+				<li class="season-link">
+					<a href="/calendar/<%= display_before_season %>"><<</a>
+				</li>
+				<li class="season-link"><%= @season %></li>
+				<li class="season-link">
+					<a href="/calendar/<%= display_after_season %>">>></a>
+				</li>	
+			</ul>
+		</div>
+
 		<li>
-			<a id="button-one">+</a>
+			<a id="button-one" class="fixed-button-js">+</a>
 		</li>
 		<li>
-			<a id="button-two">-</a>
+			<a id="button-two" class="fixed-button-js">-</a>
 		</li>
 		<li>
-			<a id="button-three" href="/">Home</a>
+			<a id="button-three" class="fixed-button-js" href="/"><</a>
 		</li>
+		<li class="fixed-buttons-profit">Profit: <span class="profit-number">$<%= @profit %></span></li>
 	</ul>
 </div>
 <div id="addDiv">
@@ -169,7 +79,6 @@
 </div>
 <div id="deleteDiv">
 	<form action="/<%= @season %>/delete_single_crop" method="post">
-		<h5>Remove Plants</h5>
 		<ul class="form-list">
 			<li class="input-label-item">Crop Name</li>
 			<li>
@@ -184,4 +93,13 @@
 			</li>
 		</ul>
 	</form>
+</div>
+<div id="addDivInfo">
+	<p class="div-information-hover">Add crops to the calendar.</p>
+</div>
+<div id="deleteDivInfo">
+	<p class="div-information-hover">Remove crops from the calendar.</p>
+</div>
+<div id="homeInfo">
+	<p class="div-information-hover">Return to home page.</p>
 </div>

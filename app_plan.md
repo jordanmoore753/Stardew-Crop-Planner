@@ -169,3 +169,103 @@ Working on responsiveness. I can't cover all screens super well, but I can assum
 All screen sizes: The banner will be changed to the current season but with no click arrows to navigate to other routes. The fixed nav is going to be fixed to the bottom of the screen so scrolling isn't an issue. The only reason you would need to scroll are to see certain crops in higher dates in the season.
 
 I think the nav should take up the full width for 667 and lower. Then, it should take up 667px exactly for the rest of the widths.
+
+/
+
+This is the old code for the form, gets pasted on line 61:
+
+<div class="form-container">
+    <div class="calendar-grid-form-container">
+      <div class="add-crop-form">
+        <h5>Add Plants</h5>
+        <form action="/add_crop_calendar" method="post">
+          <ul class="form-list">
+            <li class="input-label-item">Crop Name</li>
+            <li>
+              <select class="input-calendar" name="crop_name" required>
+                <% @crops.each do |crop| %>
+                  <option><%= crop[:name] %></option>
+                <% end %>
+              </select>
+            </li>
+            <li class="input-label-item">Date Planted</li>
+            <li>
+              <select class="input-calendar" name="plant_date" required>
+                <% available_planting_days.each do |num| %>
+                  <option><%= num %></option>
+                <% end %>
+              </select>
+            </li>
+            <li class="input-label-item">Amount Planted</li>
+            <li>
+              <input class="input-calendar" type="number" max="1000" min="1" name="amount_planted" required >
+            </li>
+          </ul>
+          <input type="submit" value="Add Crop">
+        </form>
+      </div>
+      <div class="delete-crop-form">
+        <form action="/<%= @season %>/delete_single_crop" method="post">
+          <h5>Remove Plants</h5>
+          <ul class="form-list">
+            <li class="input-label-item">Crop Name</li>
+            <li>
+              <select class="input-calendar" name="id">
+                <% @planted_crops.each do |crop| %>
+                  <option value="<%= crop[:id] %>"><%= return_crop_name(crop[:crop_id]) %>, First Harvest: <%= crop[:first_harvest] %></option>
+                <% end %>
+              </select>
+            </li>
+            <li class="input-label-item">
+              <input class="input-calendar" type="submit" value="Delete Single Crop">
+            </li>
+          </ul>
+        </form>
+        <form action="/<%= @season %>/delete_season_crops" method="post">
+          <ul class="form-list">
+            <li class="input-label-item">Delete All Crops</li>
+            <li>
+              <input class="input-calendar" type="submit" value="Delete Crops">
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div class="return-home-form">
+        <h5>Notes</h5>
+        <p class="return-home-paragraph">To change seasons, click the "<b><<</b>" or "<b>>></b>" buttons up in the top-left of this page.</span></p>
+        <h5 class="idx-return-heading">Return to Index</h5>
+        <ul class="form-list">
+          <li style="text-align: center;">
+            <a href="/"><img src="/img/player.png"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+This is old code for banner, pastedon line 1.
+
+<div class="mobile-container-banner">
+  <div class="banner-container-cal">
+    <div class="banner-links-container">
+    <ul class="banner-links">
+      <li class="banner-container-link">
+        <a href="/calendar/<%= display_before_season %>"><<</a>
+      </li>
+      <li class="banner-container-heading"><%= @season %></li>
+      <li class="banner-container-link">
+        <a href="/calendar/<%= display_after_season %>">>></a>
+      </li> 
+    </ul>
+  </div>
+  </div>
+  <div class="header-container">
+    <div class="banner-container-heading">
+      <h2 class="banner-heading">Stardew Valley Crop Planner</h2>
+    </div>
+  </div>
+  <div class="banner-profit-container">
+    <p class="banner-profit-cal">Profit: <span class="profit-number">$<%= @profit %></span></p>
+  </div>  
+</div>

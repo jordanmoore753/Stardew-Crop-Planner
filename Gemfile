@@ -6,6 +6,7 @@ gem "sinatra-contrib"
 gem "erubis"
 gem "pg"
 gem "bcrypt"
+gem "simplecov", require: false, group: :test
 
 group :production do 
 	gem "puma"

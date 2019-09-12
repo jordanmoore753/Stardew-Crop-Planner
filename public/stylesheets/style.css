@@ -70,6 +70,7 @@ body {
 .page-login-container input[type="submit"] {
 	margin-top: 18px;
 }
+
 /* index page */
 
 .logout-container {
@@ -81,7 +82,18 @@ body {
 .logout-container input {
 	padding: 15px 30px;
 	font-size: 1.3rem;
+	background-color: rgba(173,216,230,.8);
+	border: none; 
+	border-radius: 8px;
+	box-shadow: 4px 4px #551A8B;
+	cursor: pointer;
+	font-weight: bold;
+	text-shadow: 1px 1px white;
+	transition-duration: 1s;
+}
 
+.logout-container input:hover {
+	background-color: rgba(255, 179, 71,.8);
 }
 
 .index-container {
@@ -89,6 +101,10 @@ body {
 	margin: 0 auto;
 	width: 1000px;
 	height: 750px;
+}
+
+.crop-directory:hover, .crop-planner:hover {
+	background-color: rgba(255, 179, 71,.8);
 }
 
 .banner {
@@ -120,6 +136,7 @@ body {
 	border: 2px solid white;
 	border-radius: 8px;
 	box-shadow: 2px 2px;
+	transition-duration: 1s;
 }
 
 .crop-directory {
@@ -308,43 +325,97 @@ body {
 
 #addDiv, #deleteDiv {
 	position: fixed;
-	bottom: 37px;
-	left: 40%;
-	background-image: linear-gradient(to bottom right, #885ead, white);
+	bottom: 50%;
+	left: 50%;
+	background-image: linear-gradient(to bottom right, #ff5747, white);
 	padding: 20px;
 	border-radius: 10px;
+	transform: translate(-50%, 30%);
+	box-shadow: 2px 2px black;
+}
+
+#addDivInfo, #deleteDivInfo, #homeInfo {
+	display: none;
+	position: fixed;
+	bottom: 90px;
+	left: 50%;
+	background-image: linear-gradient(to bottom right, #ff5747, white);
+	padding: 10px;
+	border-radius: 10px;
+	transform: translate(-50%, 0);
+	box-shadow: 2px 2px black;
+	z-index: 3;
+}
+
+.div-information-hover {
+	font-size: .8rem;
+	padding: 0;
+	margin: 0;
+}
+
+#addDiv input[type="submit"] {
+	display: block;
+	margin: 0 auto;
 }
 
 #fixed-buttons {
 	display: block;
 	clear: both;
-	width: 25%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
+	position: fixed;
+	bottom: 15px;
 	margin: 0 auto;
-	background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
-	border-radius: 25px;
+	text-align: center;
 }
 
 #fixed-buttons ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	display: fixed;
-	bottom: 0px;
-	left: 50%;
-}
-
-#fixed-buttons li {
-	margin: 0;
-	padding: 0;	
-	display: inline;
-	text-align: center;
-	width: 100px;
-	margin: 0 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #fixed-buttons a {
+	text-decoration: none;
+}
+
+#fixed-buttons li {
+	padding: 10px 10px;
+	display: inline;
+}
+
+.season-link a {
+	color: white;
+}
+
+.fixed-button-season {
+	display: inline;
+	font-size: 1.3rem;
+	text-shadow: 2px 2px black;
+	background-image: url("/img/wood_two.jpeg");
+	color: white;
+	margin-left: -15px;
+	border-radius: 15px;
+	box-shadow: 2px 2px black;
+	padding: 0;
+}
+
+.fixed-buttons-profit {
+	display: inline;
+	font-size: 1rem;
+	text-shadow: 2px 2px black;
+	background-image: url("/img/wood_two.jpeg");
+	color: white;
+	border-radius: 15px;
+	box-shadow: 2px 2px black;
+}
+
+.fixed-button-js {
+	background-image: linear-gradient(to bottom right, #ff5747, white);
 	text-align: center;
 	border: none;
 	padding: 10px 10px;
@@ -352,17 +423,30 @@ body {
 	text-shadow: 1px 1px black;
 	cursor: pointer;
 	z-index: 2;
+	border-radius: 25px;
+	box-shadow: 2px 2px black;
+	transition: .5s ease;
+}
+
+.fixed-button-js:hover {
+	background-image: linear-gradient(to bottom right, #2A0D45, white);
+}
+
+.fixed-button-js img {
+	width: 24px;
+	height: 24px;
+	margin-top: 5px;
+	padding: 0;
 }
 
 .banner-container-cal {
 	display: block;
+	margin: 0 auto;
 	width: 300px;
 	height: 80px;
 	background-color: rgba(136,94,173,.9);
 	background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
-	float: left;
 	margin-top: 14px;
-	margin-left: 22px;
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-radius: 5px;
@@ -389,25 +473,18 @@ body {
 	color: white;
 }
 
-.banner-container-heading {
-	padding: 0;
-	margin: 15px;
-	display: inline;
-}
-
 .calendar-container {
 	display: block;
-	max-width: 1400px;
-	height: 800px;
-	float: left;
+	width: 600px;
+	height: auto;
+	margin: 0 auto;
 	margin-top: 20px;
-	margin-left: 20px;
 }
 
 .calendar-grid-container {
 	display: grid;
-	grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
-	grid-template-rows: 200px 200px 200px 200px;
+	grid-template-columns: 200px 200px 200px;
+	grid-template-rows: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
 	background-color: rgba(173,216,230,.8);
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
@@ -610,12 +687,16 @@ body {
 
 .banner-profit-cal {
 	text-align: left;
-	padding: 0;
+	padding: 15px;
+	box-shadow: 2px 2px black;
+	border-radius: 15px;
 	font-weight: bold;
 	font-size: 1.3rem;
 	margin: 26px 0;
 	margin-left: 20px;
 	text-shadow: 2px 2px black;
+	background-image: url("/img/wood_two.jpeg");
+	color: white;
 }
 
 .profit-number {
@@ -628,7 +709,6 @@ body {
 	display: inline;
 	margin: 0;
 	padding: 0;
-	margin-top: 30px;
 	height: 30px;
 	top: 30px;
 }
@@ -638,27 +718,27 @@ body {
 	font-size: 2rem;
 	color: white;
 	display: inline;
+	background-color: transparent;
+
 }
 
 .banner-container-link li {
-	display: inline-block;
 	font-size: 2.5rem;
 	margin: 0;
 	padding: 0;
+	background-color: none;
 	margin-top: 40px;
+	display: inline;
 }
 
 .banner-container-link {
 	display: inline;
+	text-shadow: 2px 2px black;
+	color: white;
 }
 
 .banner-heading {
 	margin: 18px 0 0 0;
-	padding: 0;
-}
-
-.banner-container-heading {
-	margin: 15px 0 0 0;
 	padding: 0;
 }
 
@@ -679,88 +759,78 @@ body {
 	text-shadow: 2px 1px black;
 }
 
-/* media query, smaller page (up to 1400px) */
+/* media query calendar, iPad size */
 
-@media only screen and (max-width: 1879px) {
-		.banner-container-cal {
-				border-bottom: 2px solid black;
-				border-right: 2px solid black;
-				border-radius: 5px;
-				box-shadow: 1px 2px black;
-				color: white;
-				text-shadow: 1px 2px black;
-				text-align: center;
-				margin: 0;
-		}
+@media only screen and (min-width: 1024px) and (max-width: 1375px) {
+	.calendar-grid-container {
+		display: grid;
+		grid-template-columns: 200px 200px 200px 200px;
+		grid-template-rows: 200px 200px 200px 200px 200px 200px 200px;
+		background-color: rgba(173,216,230,.8);
+		border-bottom: 2px solid black;
+		border-right: 2px solid black;
+		border-radius: 5px;
+		box-shadow: 1px 2px;
+	}
 
-		.banner-links-container {
-				margin: 15px 0 0 0;
-			}
-
-		.banner-profit-container {
-				border-bottom: 2px solid black;
-				border-right: 2px solid black;
-				border-radius: 5px;
-				box-shadow: 1px 2px black;
-				margin: 0;
-				padding: 0;
-				float: none;
-		}
-
-		.form-container {
-				display: block;
-				float: left;
-				width: 1400px;
-				height: 300px;
-				margin: 15px 0 0 115px;
-		}
-
-		.calendar-grid-form-container {
-				display: grid;
-				grid-template-columns: 320px 320px 400px;
-				grid-template-rows: 260px;
-				margin: 0;
-				grid-gap: 50px 50px;
-				height: 0;
-				margin-left: 20px;
-			}
-
-		.add-crop-form, .delete-crop-form,
-		.return-home-form {
-			margin: 0;
-			padding: 0;
-			text-align: center;
-			background-color: rgba(234,245,152,.9);
-			background-image: linear-gradient(to bottom right, #885ead, #83ad5e);
-			border-bottom: 2px solid black;
-			border-right: 2px solid black;
-			border-radius: 5px;
-			box-shadow: 1px 2px;
-		}
-
-		.mobile-container-banner {
-			display: grid;
-			grid-template-columns: 300px 600px 300px;
-			grid-template-rows: 80px;
-			grid-gap: 88px 98px;
-			margin-left: 0;
-		}
-
-		.header-container {
-			float: none;
-			margin: 0;
-		}
-
-		.idx-return-heading {
-			margin-top: 30px;
-		}
-
-		.return-home-paragraph {
-			margin-top: 25px;
-		}
-
-		.calendar-container {
-			margin: 0 auto;
-			margin-top: 20px;
-		}
+	.calendar-container {
+		width: 800px;
+		margin: 0 auto;
+	}
 }
+
+/* media query, calendar, small laptop size */
+
+@media only screen and (min-width: 1376px) and (max-width: 1500px) {
+	.calendar-grid-container {
+		display: grid;
+		grid-template-columns: 200px 200px 200px 200px 200px;
+		grid-template-rows: 200px 200px 200px 200px 200px 200px;
+		background-color: rgba(173,216,230,.8);
+		border-bottom: 2px solid black;
+		border-right: 2px solid black;
+		border-radius: 5px;
+		box-shadow: 1px 2px;
+	}
+
+	.calendar-container {
+		width: 1000px;
+		margin: 0 auto;
+	}
+}
+
+/* media query, calendar, laptop size */
+
+@media only screen and (min-width: 1500px) {
+	.calendar-grid-container {
+		display: grid;
+		grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+		grid-template-rows: 200px 200px 200px 200px;
+		background-color: rgba(173,216,230,.8);
+		border-bottom: 2px solid black;
+		border-right: 2px solid black;
+		border-radius: 5px;
+		box-shadow: 1px 2px;
+	}
+
+	.calendar-container {
+		width: 1400px;
+		margin: 0 auto;
+	}
+
+	#fixed-buttons li {
+		padding: 20px 20px;
+		font-size: 1.5rem;
+	}
+
+	#fixed-button-js {
+		background-image: 
+	}
+
+	#season-ul ul {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+/* media query, smaller page (up to 1400px) */

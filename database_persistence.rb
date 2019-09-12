@@ -114,6 +114,11 @@ class DatabasePersistence
     array[0][:id]
   end
 
+  def delete_user_by_name(name)
+    sql = "DELETE FROM users WHERE name = $1;"
+    query(sql, name)
+  end
+
   private
 
   def tuple_to_crop_hash(tuple)

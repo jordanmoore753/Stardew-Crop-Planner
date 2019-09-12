@@ -9,7 +9,6 @@ require 'rack/test'
 require_relative '../app'
 require_relative '../database_persistence'
 
-# This is the testing class.
 class AppTest < Minitest::Test
   include Rack::Test::Methods
 
@@ -17,8 +16,68 @@ class AppTest < Minitest::Test
     Sinatra::Application
   end
 
+  def user_reg_and_login
+    post "/register", params = { username: "CarsonDaly", password: "123456789" }
+    post "/login", params = { username: "CarsonDaly", password: "123456789" }
+  end 
+
+  def user_destroy
+    post "/delete_user", params = { name: "CarsonDaly" }
+  end
+
   def session
     last_request.env['rack.session']
+  end
+
+  def test_user_register
+    get "/login"
+
+    assert_includes last_response.body, "Login"
+    assert_includes last_response.body, "Register"
+
+    post "/register", params = { username: "CarsonDaly", password: "123456789" }
+
+    get last_response["Location"]
+
+    assert_includes last_response.body, "Login"
+    assert_includes last_response.body, "Register"
+    assert_includes last_response.body, "User created."
+
+    user_destroy
+  end
+
+  def test_user_register_fail 
+    post "/register", params = { username: "CarsonDaly", password: "123456789" }
+
+    post "/register", params = { username: "CarsonDaly", password: "123456789" }
+
+    get last_response['Location']
+
+    assert_includes last_response.body, "Username is unavailable."
+
+    user_destroy
+  end
+
+  def test_user_login
+    user_reg_and_login
+    get last_response["Location"]
+
+    assert_includes last_response.body, "Spring"
+    assert_equal "CarsonDaly", session[:curr_user]
+
+    user_destroy
+  end
+
+  def test_user_login_fail
+    post "/register", params = { username: "CarsonDaly", password: "123456789" }
+
+    post "/login", params = { username: "CarsonDaly", password: "12345789" }
+
+    get last_response['Location']
+
+    assert_includes last_response.body, "Invalid credentials."
+
+    user_destroy
   end
 
   def test_single_crop
@@ -28,29 +87,19 @@ class AppTest < Minitest::Test
     assert_includes last_response.body, 'Spring'
   end
 
-  def test_crop_fall
-    get '/calendar/fall'
+  def test_calendar
+    user_reg_and_login
 
-    assert_includes last_response.body, '<option>Amaranth</option>'
-    assert_includes last_response.body, '<option>Yam</option>'
-  end
+    get last_response["Location"]
 
-  def test_crop_spring
-    get '/calendar/spring'
+    assert_includes last_response.body, "Spring"
+    assert_includes last_response.body, "Profit"
 
-    assert_includes last_response.body, '<option>Blue Jazz</option>'
-    assert_includes last_response.body, '<option>Tulip</option>'
-  end
-
-  def test_crop_summer
-    get '/calendar/summer'
-
-    assert_includes last_response.body, '<option>Blueberry</option>'
-    assert_includes last_response.body, '<option>Wheat</option>'
+    user_destroy
   end
 
   def test_add_crop
-    post '/fall/delete_season_crops'
+    user_reg_and_login
 
     post '/add_crop_calendar', 'crop_name' => 'Amaranth',
                                'plant_date' => '3',
@@ -63,32 +112,12 @@ class AppTest < Minitest::Test
     assert_includes last_response.body, '$6000'
 
     post '/fall/delete_season_crops'
-  end
 
-  def test_delete_single_crop
-    # unable to grab the parameter from the route
-  end
-
-  def test_delete_all_crops
-    post '/fall/delete_season_crops'
-
-    post '/add_crop_calendar', 'crop_name' => 'Amaranth',
-                               'plant_date' => '3',
-                               'amount_planted' => 40
-
-    get last_response['Location']
-
-    assert_includes last_response.body, 'Amara...'
-
-    post '/fall/delete_season_crops'
-
-    get '/calendar/fall'
-
-    refute_includes last_response.body, 'Amara...'
+    user_destroy
   end
 
   def test_profit
-    post '/fall/delete_season_crops'
+    user_reg_and_login
 
     post '/add_crop_calendar', 'crop_name' => 'Amaranth',
                                'plant_date' => '3',
@@ -99,6 +128,12 @@ class AppTest < Minitest::Test
     assert_includes last_response.body, '$3,200'
 
     post '/fall/delete_season_crops'
+
+    get last_response['Location']
+
+    assert_includes last_response.body, '$0'
+
+    user_destroy
   end
 
   def test_index
@@ -116,5 +151,25 @@ class AppTest < Minitest::Test
     assert_includes last_response.body, 'Crop Directory Search'
     assert_includes last_response.body, 'Choose the plant'
     assert_includes last_response.body, 'Return to Index'
+  end
+
+  def test_delete_crops
+    user_reg_and_login
+
+    post '/add_crop_calendar', 'crop_name' => 'Amaranth',
+                               'plant_date' => '3',
+                               'amount_planted' => 40
+
+    get last_response['Location']
+
+    post '/fall/delete_season_crops'
+
+    get last_response['Location']
+
+    refute_includes last_response.body, 'Amara...'
+    refute_includes last_response.body, 'x40'
+    refute_includes last_response.body, '$6000'
+
+    user_destroy   
   end
 end

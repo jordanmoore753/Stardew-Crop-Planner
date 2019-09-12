@@ -346,3 +346,8 @@ post "/:season/delete_season_crops" do
   remove_all_crops(season, user_id)
   redirect "/calendar/#{params[:season]}"
 end
+
+post "/delete_user" do 
+  @storage.delete_user_by_name(params[:name])
+  redirect "/"
+end
