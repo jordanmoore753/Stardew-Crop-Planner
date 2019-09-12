@@ -275,8 +275,6 @@ get "/crop_directory" do
 end
 
 get "/login" do
-  @yes = user_doesnt_exist?('smith')
-  @y = @storage.load_user_id_by_name('JohnnyBoy')
   erb :login
 end
 

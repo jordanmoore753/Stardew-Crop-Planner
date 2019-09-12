@@ -7,7 +7,6 @@ class DatabasePersistence
           else
             PG.connect(dbname: "sdplanner")
           end
-    @logger = logger
   end
 
   def disconnect
@@ -15,7 +14,6 @@ class DatabasePersistence
   end
 
   def query(statement, *params)
-    @logger.info "#{statement}: #{params}"
     @db.exec_params(statement, params)
   end
 
