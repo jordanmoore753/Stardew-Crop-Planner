@@ -356,7 +356,7 @@ body {
 #addDivInfo, #deleteDivInfo, #homeInfo {
 	display: none;
 	position: fixed;
-	bottom: 90px;
+	bottom: 86px;
 	left: 50%;
 	background-color: rgba(255, 255, 255,.9); 
 	padding: 10px;
