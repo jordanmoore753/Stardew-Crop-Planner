@@ -403,7 +403,7 @@ body {
 }
 
 #fixed-buttons li {
-	padding: 10px 10px;
+	padding: 4px 4px;
 	display: inline;
 }
 
@@ -413,7 +413,7 @@ body {
 
 .fixed-button-season {
 	display: inline;
-	font-size: 1.3rem;
+	font-size: .8rem;
 	text-shadow: 1px 1px #aa8cc5;
 	background-color: rgba(255, 255, 255,.9);
 	color: #551A8B;
@@ -426,7 +426,7 @@ body {
 
 .fixed-buttons-profit {
 	display: inline;
-	font-size: 1rem;
+	font-size: .8rem;
 	text-shadow: 1px 1px #aa8cc5;
 	background-color: rgba(255, 255, 255,.9);
 	color: #551A8B;
@@ -439,7 +439,7 @@ body {
 	background-color: rgba(255, 255, 255,.9); 
 	text-align: center;
 	border: none;
-	padding: 10px 10px;
+	padding: 5px 5px;
 	color: #551A8B;
 	text-shadow: 1px 1px #aa8cc5;
 	cursor: pointer;
@@ -447,7 +447,7 @@ body {
 	border-radius: 10px;
 	box-shadow: 2px 2px #551A8B;
 	transition: .5s ease;
-	font-size: 2.4rem;
+	font-size: 1.6rem;
 	border: 1px solid black;
 }
 
@@ -500,7 +500,7 @@ body {
 
 .calendar-container {
 	display: block;
-	width: 600px;
+	width: 200px;
 	height: auto;
 	margin: 0 auto;
 	margin-top: 10px;
@@ -508,8 +508,8 @@ body {
 
 .calendar-grid-container {
 	display: grid;
-	grid-template-columns: 200px 200px 200px;
-	grid-template-rows: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
+	grid-template-columns: 200px;
+	grid-auto-rows: 200px;
 	background-color: rgba(173,216,230,.8);
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
@@ -727,7 +727,7 @@ body {
 
 .profit-number {
 	color: #00ff00;
-	text-shadow: 1px 1px 2px black;
+	text-shadow: 1px 1px black;
 }
 
 .banner-links {
@@ -786,7 +786,71 @@ body {
 
 /* media query calendar, iPad size */
 
-@media only screen and (min-width: 845px) and (max-width: 1049px) {
+@media only screen and (min-width: 667px) and (max-width: 950px) {
+	.calendar-grid-container {
+		display: grid;
+		grid-template-columns: 200px 200px 200px;
+		grid-template-rows: 200px 200px 200px 200px 200px 200px 200px 200px 200px;
+		background-color: rgba(173,216,230,.8);
+		border-bottom: 2px solid black;
+		border-right: 2px solid black;
+		border-radius: 5px;
+		box-shadow: 1px 2px;
+	}
+
+	.calendar-container {
+		width: 600px;
+		margin: 0 auto;
+	}
+
+	#fixed-buttons li {
+		padding: 8px 8px;
+	}
+
+	.fixed-button-season {
+		display: inline;
+		font-size: 1.4rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		margin-left: -15px;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		padding: 0;
+		border: 1px solid black;
+	}
+
+	.fixed-buttons-profit {
+		display: inline;
+		font-size: 1.2rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		border: 1px solid black;
+	}
+
+	.fixed-button-js {
+		background-color: rgba(255, 255, 255,.9); 
+		text-align: center;
+		border: none;
+		padding: 3px 5px;
+		color: #551A8B;
+		text-shadow: 1px 1px #aa8cc5;
+		cursor: pointer;
+		z-index: 2;
+		border-radius: 10px;
+		box-shadow: 2px 2px #551A8B;
+		transition: .5s ease;
+		font-size: 2.4rem;
+		border: 1px solid black;
+	}
+}
+
+/* media query calendar, small Kindle size */
+
+@media only screen and (min-width: 951px) and (max-width: 1024px) {
 	.calendar-grid-container {
 		display: grid;
 		grid-template-columns: 200px 200px 200px 200px;
@@ -802,11 +866,55 @@ body {
 		width: 800px;
 		margin: 0 auto;
 	}
+
+	#fixed-buttons li {
+		padding: 9px 9px;
+	}
+
+	.fixed-button-season {
+		display: inline;
+		font-size: 1.4rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		margin-left: -15px;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		padding: 0;
+		border: 1px solid black;
+	}
+
+	.fixed-buttons-profit {
+		display: inline;
+		font-size: 1.2rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		border: 1px solid black;
+	}
+
+	.fixed-button-js {
+		background-color: rgba(255, 255, 255,.9); 
+		text-align: center;
+		border: none;
+		padding: 2px 5px;
+		color: #551A8B;
+		text-shadow: 1px 1px #aa8cc5;
+		cursor: pointer;
+		z-index: 2;
+		border-radius: 10px;
+		box-shadow: 2px 2px #551A8B;
+		transition: .5s ease;
+		font-size: 2.4rem;
+		border: 1px solid black;
+	}
 }
 
 /* media query, calendar, small laptop size */
 
-@media only screen and (min-width: 1050px) and (max-width: 1250px) {
+@media only screen and (min-width: 1025px) and (max-width: 1250px) {
 	.calendar-grid-container {
 		display: grid;
 		grid-template-columns: 200px 200px 200px 200px 200px;
@@ -822,6 +930,50 @@ body {
 		width: 1000px;
 		margin: 0 auto;
 	}
+
+		#fixed-buttons li {
+			padding: 12px 12px;
+		}
+
+	.fixed-button-season {
+		display: inline;
+		font-size: 1.4rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		margin-left: -15px;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		padding: 0;
+		border: 1px solid black;
+	}
+
+	.fixed-buttons-profit {
+		display: inline;
+		font-size: 1.3rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		border: 1px solid black;
+	}
+
+	.fixed-button-js {
+		background-color: rgba(255, 255, 255,.9); 
+		text-align: center;
+		border: none;
+		padding: 3px 10px;
+		color: #551A8B;
+		text-shadow: 1px 1px #aa8cc5;
+		cursor: pointer;
+		z-index: 2;
+		border-radius: 10px;
+		box-shadow: 2px 2px #551A8B;
+		transition: .5s ease;
+		font-size: 2.4rem;
+		border: 1px solid black;
+	}
 }
 
 /* media query, calendar, mid laptop size */
@@ -830,7 +982,7 @@ body {
 	.calendar-grid-container {
 		display: grid;
 		grid-template-columns: 200px 200px 200px 200px 200px 200px;
-		grid-template-rows: 200px 200px 200px 200px 200px 200px;
+		grid-template-rows: 200px 200px 200px 200px 200px;
 		background-color: rgba(173,216,230,.8);
 		border-bottom: 2px solid black;
 		border-right: 2px solid black;
@@ -841,6 +993,50 @@ body {
 	.calendar-container {
 		width: 1200px;
 		margin: 0 auto;
+	}
+
+	#fixed-buttons li {
+		padding: 12px 12px;
+	}
+
+	.fixed-button-season {
+		display: inline;
+		font-size: 1.5rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		margin-left: -15px;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		padding: 0;
+		border: 1px solid black;
+	}
+
+	.fixed-buttons-profit {
+		display: inline;
+		font-size: 1.4rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		border: 1px solid black;
+	}
+
+	.fixed-button-js {
+		background-color: rgba(255, 255, 255,.9); 
+		text-align: center;
+		border: none;
+		padding: 3px 10px;
+		color: #551A8B;
+		text-shadow: 1px 1px #aa8cc5;
+		cursor: pointer;
+		z-index: 2;
+		border-radius: 10px;
+		box-shadow: 2px 2px #551A8B;
+		transition: .5s ease;
+		font-size: 2.4rem;
+		border: 1px solid black;
 	}
 }
 
@@ -876,6 +1072,44 @@ body {
 		display: flex;
 		flex-direction: row;
 	}
-}
 
-/* media query, smaller page (up to 1400px) */
+	.fixed-button-season {
+		display: inline;
+		font-size: 1.3rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		margin-left: -15px;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		padding: 0;
+		border: 1px solid black;
+	}
+
+	.fixed-buttons-profit {
+		display: inline;
+		font-size: 1rem;
+		text-shadow: 1px 1px #aa8cc5;
+		background-color: rgba(255, 255, 255,.9);
+		color: #551A8B;
+		border-radius: 15px;
+		box-shadow: 2px 3px #551A8B;
+		border: 1px solid black;
+	}
+
+	.fixed-button-js {
+		background-color: rgba(255, 255, 255,.9); 
+		text-align: center;
+		border: none;
+		padding: 10px 10px;
+		color: #551A8B;
+		text-shadow: 1px 1px #aa8cc5;
+		cursor: pointer;
+		z-index: 2;
+		border-radius: 10px;
+		box-shadow: 2px 2px #551A8B;
+		transition: .5s ease;
+		font-size: 2.4rem;
+		border: 1px solid black;
+	}
+}
