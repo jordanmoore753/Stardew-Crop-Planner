@@ -11,6 +11,8 @@
         $("#button-one").click(function(){
           $("#addDiv").fadeToggle(300);
           $("#addDivInfo").slideToggle(300);
+          $("#deleteDiv").fadeOut(100);
+          $("#deleteDivInfo").fadeOut(100);
         });
       });
 
@@ -18,6 +20,8 @@
         $("#button-two").click(function(){
           $("#deleteDiv").fadeToggle(300);
           $("#deleteDivInfo").slideToggle(300);
+          $("#addDiv").fadeOut(100);
+          $("#addDivInfo").fadeOut(100);
         });
       });
 
