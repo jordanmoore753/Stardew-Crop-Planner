@@ -12,34 +12,27 @@ body {
 .page-login-container {
 	display: block;
 	margin: 0 auto;
-	width: 1000px;
-	height: 890px;
+	width: 100%;
+	height: 1000px;
 }
 
 .page-login-container h2 {
 	text-shadow: 2px 1px white;
-	margin: 25px 0;
+	
 }
 
 .login-container, .register-container {
-	display: inline-block;
-	width: 400px;
-	height: 350px;
-	margin: 200px 45px;
+	display: block;
+	width: 90%;
+	height: auto;
 	text-align: center;
 	background-color: rgba(173,216,230,.8);
 	box-sizing: border-box;
 	border: 2px solid white;
 	border-radius: 8px;
 	box-shadow: 2px 2px;
-}
-
-.login-container {
-	float: left;
-}
-
-.register-container {
-	float: right;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 
 .success-msg {
@@ -56,7 +49,7 @@ body {
 
 .login-explanation {
 	font-size: 1rem;
-	margin: 15px 25px;
+	margin: 10px 15px;
 }
 
 .page-login-container label {
@@ -65,10 +58,12 @@ body {
 
 .page-login-container input {
 	margin: 5px 0;
+	padding: 5px;
 }
 
 .page-login-container input[type="submit"] {
-	margin-top: 18px;
+	margin-top: 12px;
+	margin-bottom: 20px;
 }
 
 /* index page */
@@ -99,8 +94,9 @@ body {
 .index-container {
 	display: block;
 	margin: 0 auto;
-	width: 1000px;
-	height: 750px;
+	width: 100%;
+	height: 825px;
+	text-decoration: none;
 }
 
 .crop-directory:hover, .crop-planner:hover {
@@ -113,7 +109,7 @@ body {
 	text-shadow: 2px 2px black;
 	display: block;
 	margin: 0 auto;
-	width: 100%;
+	width: 95%;
 	font-family: 'Inconsolata', monospace;
 	text-align: center;
 	background-color: rgba(173,216,230,.8);
@@ -121,15 +117,17 @@ body {
 	border: 2px solid white;
 	border-radius: 8px;
 	box-shadow: 2px 2px black;
-	margin-top: 250px;
+	margin-top: 50px;
+	font-size: 1.2rem;
 }
 
 .crop-directory, .crop-planner {
-	display: inline-block;
+	display: block;
 	box-sizing: border-box;
-	width: 400px;
-	height: 200px;
-	margin: 60px 20px;
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 25px;
 	text-align: center;
 	background-color: rgba(173,216,230,.8);
 	box-sizing: border-box;
@@ -137,28 +135,26 @@ body {
 	border-radius: 8px;
 	box-shadow: 2px 2px;
 	transition-duration: 1s;
-}
-
-.crop-directory {
-	float: left;
-}
-
-.crop-planner {
-	float: right;
+	padding-bottom: 20px;
+	text-decoration: none;
 }
 
 .paragraph-index {
 	font-size: .9rem;
-	margin: 0 50px;
+	margin: 0 10px;
+	text-decoration: none;
 }
 
 .index-img {
 	width: 34px;
 	height: 34px;
+	padding-bottom: 10px;
 }
 
 .index-header {
 	margin: 20px 0 10px 0;
+	text-decoration: none;
+	font-size: 1.8rem;
 }
 
 /* crop directory page */
@@ -166,24 +162,21 @@ body {
 .crop-directory-container {
 	display: block;
 	margin: 0 auto;
-	width: 750px;
-	height: 750px;
+	width: 100%;
+	height: 825px;
 }
 
 .crop-dir-header, .crop-dir-search-box, .crop-dir-return-box {
 	display: block;
-	width: 100%;
+	margin: 0 auto;
+	width: 90%;
 	box-sizing: border-box;
 	background-color: rgba(173,216,230,.8);
 	box-sizing: border-box;
 	border: 2px solid white;
 	border-radius: 8px;
 	box-shadow: 2px 2px;
-	margin: 20px 0;
-}
-
-.crop-dir-header {
-	margin-top: 200px;
+	margin-top: 35px;
 }
 
 .crop-dir-heading {
@@ -193,14 +186,20 @@ body {
 
 .crop-dir-paragraph {
 	font-size: .9rem;
-	margin-left: 20px;
+	margin: 20px 10px;
 }
 
 .crop-search-form {
 	display: block;
 	margin: 0 auto;
-	width: 35%;
+	width: 100%;
 	margin-bottom: 10px;
+}
+
+.crop-search-form select, .crop-search-form input {
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
 }
 
 .crop-dir-return {
@@ -216,11 +215,12 @@ body {
 	margin-bottom: 12px;
 }
 
+
 /* single crop page */
 
 .single-crop-container {
-	width: 500px;
-	height: 750px;
+	width: 100%;
+	height: 1200px;
 	display: block;
 	margin: 0 auto;
 	box-sizing: border-box;
@@ -240,7 +240,7 @@ body {
 
 .single-crop-grid-container {
 	display: grid;
-	grid-template-columns: 175px 350px;
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto;
 	grid-template-areas: "side_header header"
 																						"side_season season"
@@ -252,8 +252,6 @@ body {
 																						"side-notes notes";
 	background-color: rgba(173,216,230,.8);
 	box-sizing: border-box;
-	max-width: 600px;
-	height: 100%;
 	border: 2px solid white;
 	border-radius: 8px;
 	box-shadow: 2px 2px;
@@ -291,20 +289,8 @@ body {
 	font-size: .9rem;
 }
 
-.search-again {
-	display: block;
-	float: left;
-}
-
-.return-index {
-	display: block;
-	width: 250px;
-	height: 100px;
-	float: right;
-}
-
 .search-again, .return-index {
-	margin: 20px 10px;
+	margin: 0 auto;
 	background-color: rgba(173,216,230,.8);
 	box-sizing: border-box;
 	border: 2px solid white;
@@ -312,8 +298,9 @@ body {
 	box-shadow: 2px 2px;
 	text-align: center;
 	font-size: 1.3rem;
-	width: 200px;
-	height: 80px;
+	width: 90%;
+	height: auto;
+	margin-top: 20px;
 }
 
 /* calendar page */
@@ -910,6 +897,39 @@ body {
 		font-size: 2.4rem;
 		border: 1px solid black;
 	}
+
+	.page-login-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 890px;
+	}
+
+	.page-login-container h2 {
+		text-shadow: 2px 1px white;
+		margin: 25px 0;
+	}
+
+	.login-container, .register-container {
+		display: inline-block;
+		width: 400px;
+		height: 350px;
+		margin: 200px 45px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+	}
+
+	.login-container {
+		float: left;
+	}
+
+	.register-container {
+		float: right;
+	}
 }
 
 /* media query, calendar, small laptop size */
@@ -974,6 +994,278 @@ body {
 		font-size: 2.4rem;
 		border: 1px solid black;
 	}
+
+	.page-login-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 890px;
+	}
+
+	.page-login-container h2 {
+		text-shadow: 2px 1px white;
+		margin: 25px 0;
+	}
+
+	.login-container, .register-container {
+		display: inline-block;
+		width: 400px;
+		height: 350px;
+		margin: 200px 45px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+	}
+
+	.login-container {
+		float: left;
+	}
+
+	.register-container {
+		float: right;
+	}
+
+	.logout-container {
+	position: fixed;
+	top: 10px;
+	right: 20px;
+}
+
+	.logout-container input {
+		padding: 15px 30px;
+		font-size: 1.3rem;
+		background-color: rgba(173,216,230,.8);
+		border: none; 
+		border-radius: 8px;
+		box-shadow: 4px 4px #551A8B;
+		cursor: pointer;
+		font-weight: bold;
+		text-shadow: 1px 1px white;
+		transition-duration: 1s;
+	}
+
+	.logout-container input:hover {
+		background-color: rgba(255, 179, 71,.8);
+	}
+
+	.index-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 750px;
+	}
+
+	.crop-directory:hover, .crop-planner:hover {
+		background-color: rgba(255, 179, 71,.8);
+	}
+
+	.banner {
+		background-image: url("/img/wood_two.jpeg");
+		color: white;
+		text-shadow: 2px 2px black;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		font-family: 'Inconsolata', monospace;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px black;
+		margin-top: 250px;
+	}
+
+	.crop-directory, .crop-planner {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 400px;
+		height: 200px;
+		margin: 60px 20px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		transition-duration: 1s;
+	}
+
+	.crop-directory {
+		float: left;
+	}
+
+	.crop-planner {
+		float: right;
+	}
+
+	.paragraph-index {
+		font-size: .9rem;
+		margin: 0 50px;
+	}
+
+	.index-img {
+		width: 34px;
+		height: 34px;
+	}
+
+	.index-header {
+		margin: 20px 0 10px 0;
+	}
+
+	.crop-directory-container {
+		display: block;
+		margin: 0 auto;
+		width: 750px;
+		height: 750px;
+	}
+
+	.crop-dir-header, .crop-dir-search-box, .crop-dir-return-box {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		margin: 20px 0;
+	}
+
+	.crop-dir-header {
+		margin-top: 200px;
+	}
+
+	.crop-dir-heading {
+		text-align: center;
+		text-shadow: 1px 1px white;
+	}
+
+	.crop-dir-paragraph {
+		font-size: .9rem;
+		margin-left: 20px;
+	}
+
+	.crop-search-form {
+		display: block;
+		margin: 0 auto;
+		width: 35%;
+		margin-bottom: 10px;
+	}
+
+	.crop-dir-return {
+		text-align: center;
+		text-shadow: 1px 1px white;
+		padding: 10px;
+		margin: 0;
+	}
+
+	.return-img-icon {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 12px;
+	}
+
+	.single-crop-container {
+		width: 500px;
+		height: 750px;
+		display: block;
+		margin: 0 auto;
+		box-sizing: border-box;
+		box-sizing: border-box;
+		margin-top: 50px;
+	}
+
+	.single-crop-container a {
+		color: blue;
+		transition: 0.5s;
+	}
+
+	.single-crop-containr a:hover {
+		background-color: rgba(216,230,173,.8);
+		transition-duration: 2s;
+	}
+
+	.single-crop-grid-container {
+		display: grid;
+		grid-template-columns: 175px 350px;
+		grid-template-rows: auto;
+		grid-template-areas: "side_header header"
+																							"side_season season"
+																							"side_first first_harvest"
+																							"side_regrow regrow"
+																							"side_produces produces"
+																							"side_sell_price sell_price"
+																							"side_seed_price seed_price"
+																							"side-notes notes";
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		max-width: 600px;
+		height: 100%;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		align-items: center;
+		text-align: center;
+	}
+
+	.header {
+		grid-area: header;
+		text-align: center;
+		font-size: 1.2rem;
+		color: navy;
+		text-shadow: 1px 1px white;
+	}
+
+	.side_header img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.side_season, .side_first, .side_regrow, 
+	.side_produces, .side_sell_price, .side_seed_price {
+		color: purple;
+		text-shadow: 1px 1px white;
+		font-size: 1.2rem;
+	}
+
+	.season, .first_harvest, .regrow, .produces, .sell_price,
+	.seed_price {
+		font-size: 1.2rem;
+	}
+
+	.notes p {
+		text-align: left;
+		font-size: .9rem;
+	}
+
+	.search-again {
+		display: block;
+		float: left;
+	}
+
+	.return-index {
+		display: block;
+		width: 250px;
+		height: 100px;
+		float: right;
+	}
+
+	.search-again, .return-index {
+		margin: 20px 10px;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		text-align: center;
+		font-size: 1.3rem;
+		width: 200px;
+		height: 80px;
+	}
 }
 
 /* media query, calendar, mid laptop size */
@@ -1037,6 +1329,255 @@ body {
 		transition: .5s ease;
 		font-size: 2.4rem;
 		border: 1px solid black;
+	}
+
+	.page-login-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 890px;
+	}
+
+	.page-login-container h2 {
+		text-shadow: 2px 1px white;
+		margin: 25px 0;
+	}
+
+	.login-container, .register-container {
+		display: inline-block;
+		width: 400px;
+		height: 350px;
+		margin: 200px 45px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+	}
+
+	.login-container {
+		float: left;
+	}
+
+	.register-container {
+		float: right;
+	}
+
+.index-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 750px;
+	}
+
+	.crop-directory:hover, .crop-planner:hover {
+		background-color: rgba(255, 179, 71,.8);
+	}
+
+	.banner {
+		background-image: url("/img/wood_two.jpeg");
+		color: white;
+		text-shadow: 2px 2px black;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		font-family: 'Inconsolata', monospace;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px black;
+		margin-top: 250px;
+	}
+
+	.crop-directory, .crop-planner {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 400px;
+		height: 200px;
+		margin: 60px 20px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		transition-duration: 1s;
+	}
+
+	.crop-directory {
+		float: left;
+	}
+
+	.crop-planner {
+		float: right;
+	}
+
+	.paragraph-index {
+		font-size: .9rem;
+		margin: 0 50px;
+	}
+
+	.index-img {
+		width: 34px;
+		height: 34px;
+	}
+
+	.index-header {
+		margin: 20px 0 10px 0;
+	}
+
+		.crop-directory-container {
+		display: block;
+		margin: 0 auto;
+		width: 750px;
+		height: 750px;
+	}
+
+	.crop-dir-header, .crop-dir-search-box, .crop-dir-return-box {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		margin: 20px 0;
+	}
+
+	.crop-dir-header {
+		margin-top: 200px;
+	}
+
+	.crop-dir-heading {
+		text-align: center;
+		text-shadow: 1px 1px white;
+	}
+
+	.crop-dir-paragraph {
+		font-size: .9rem;
+		margin-left: 20px;
+	}
+
+	.crop-search-form {
+		display: block;
+		margin: 0 auto;
+		width: 35%;
+		margin-bottom: 10px;
+	}
+
+	.crop-dir-return {
+		text-align: center;
+		text-shadow: 1px 1px white;
+		padding: 10px;
+		margin: 0;
+	}
+
+	.return-img-icon {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 12px;
+	}
+
+	.single-crop-container {
+		width: 500px;
+		height: 750px;
+		display: block;
+		margin: 0 auto;
+		box-sizing: border-box;
+		box-sizing: border-box;
+		margin-top: 50px;
+	}
+
+	.single-crop-container a {
+		color: blue;
+		transition: 0.5s;
+	}
+
+	.single-crop-containr a:hover {
+		background-color: rgba(216,230,173,.8);
+		transition-duration: 2s;
+	}
+
+	.single-crop-grid-container {
+		display: grid;
+		grid-template-columns: 175px 350px;
+		grid-template-rows: auto;
+		grid-template-areas: "side_header header"
+																							"side_season season"
+																							"side_first first_harvest"
+																							"side_regrow regrow"
+																							"side_produces produces"
+																							"side_sell_price sell_price"
+																							"side_seed_price seed_price"
+																							"side-notes notes";
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		max-width: 600px;
+		height: 100%;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		align-items: center;
+		text-align: center;
+	}
+
+	.header {
+		grid-area: header;
+		text-align: center;
+		font-size: 1.2rem;
+		color: navy;
+		text-shadow: 1px 1px white;
+	}
+
+	.side_header img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.side_season, .side_first, .side_regrow, 
+	.side_produces, .side_sell_price, .side_seed_price {
+		color: purple;
+		text-shadow: 1px 1px white;
+		font-size: 1.2rem;
+	}
+
+	.season, .first_harvest, .regrow, .produces, .sell_price,
+	.seed_price {
+		font-size: 1.2rem;
+	}
+
+	.notes p {
+		text-align: left;
+		font-size: .9rem;
+	}
+
+	.search-again {
+		display: block;
+		float: left;
+	}
+
+	.return-index {
+		display: block;
+		width: 250px;
+		height: 100px;
+		float: right;
+	}
+
+	.search-again, .return-index {
+		margin: 20px 10px;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		text-align: center;
+		font-size: 1.3rem;
+		width: 200px;
+		height: 80px;
 	}
 }
 
@@ -1111,5 +1652,254 @@ body {
 		transition: .5s ease;
 		font-size: 2.4rem;
 		border: 1px solid black;
+	}
+
+	.page-login-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 890px;
+	}
+
+	.page-login-container h2 {
+		text-shadow: 2px 1px white;
+		margin: 25px 0;
+	}
+
+	.login-container, .register-container {
+		display: inline-block;
+		width: 400px;
+		height: 350px;
+		margin: 200px 45px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+	}
+
+	.login-container {
+		float: left;
+	}
+
+	.register-container {
+		float: right;
+	}
+
+.index-container {
+		display: block;
+		margin: 0 auto;
+		width: 1000px;
+		height: 750px;
+	}
+
+	.crop-directory:hover, .crop-planner:hover {
+		background-color: rgba(255, 179, 71,.8);
+	}
+
+	.banner {
+		background-image: url("/img/wood_two.jpeg");
+		color: white;
+		text-shadow: 2px 2px black;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		font-family: 'Inconsolata', monospace;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px black;
+		margin-top: 250px;
+	}
+
+	.crop-directory, .crop-planner {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 400px;
+		height: 200px;
+		margin: 60px 20px;
+		text-align: center;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		transition-duration: 1s;
+	}
+
+	.crop-directory {
+		float: left;
+	}
+
+	.crop-planner {
+		float: right;
+	}
+
+	.paragraph-index {
+		font-size: .9rem;
+		margin: 0 50px;
+	}
+
+	.index-img {
+		width: 34px;
+		height: 34px;
+	}
+
+	.index-header {
+		margin: 20px 0 10px 0;
+	}
+
+		.crop-directory-container {
+		display: block;
+		margin: 0 auto;
+		width: 750px;
+		height: 750px;
+	}
+
+	.crop-dir-header, .crop-dir-search-box, .crop-dir-return-box {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		margin: 20px 0;
+	}
+
+	.crop-dir-header {
+		margin-top: 200px;
+	}
+
+	.crop-dir-heading {
+		text-align: center;
+		text-shadow: 1px 1px white;
+	}
+
+	.crop-dir-paragraph {
+		font-size: .9rem;
+		margin-left: 20px;
+	}
+
+	.crop-search-form {
+		display: block;
+		margin: 0 auto;
+		width: 35%;
+		margin-bottom: 10px;
+	}
+
+	.crop-dir-return {
+		text-align: center;
+		text-shadow: 1px 1px white;
+		padding: 10px;
+		margin: 0;
+	}
+
+	.return-img-icon {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 12px;
+	}
+
+	.single-crop-container {
+		width: 500px;
+		height: 750px;
+		display: block;
+		margin: 0 auto;
+		box-sizing: border-box;
+		box-sizing: border-box;
+		margin-top: 50px;
+	}
+
+	.single-crop-container a {
+		color: blue;
+		transition: 0.5s;
+	}
+
+	.single-crop-containr a:hover {
+		background-color: rgba(216,230,173,.8);
+		transition-duration: 2s;
+	}
+
+	.single-crop-grid-container {
+		display: grid;
+		grid-template-columns: 175px 350px;
+		grid-template-rows: auto;
+		grid-template-areas: "side_header header"
+																							"side_season season"
+																							"side_first first_harvest"
+																							"side_regrow regrow"
+																							"side_produces produces"
+																							"side_sell_price sell_price"
+																							"side_seed_price seed_price"
+																							"side-notes notes";
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		max-width: 600px;
+		height: 100%;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		align-items: center;
+		text-align: center;
+	}
+
+	.header {
+		grid-area: header;
+		text-align: center;
+		font-size: 1.2rem;
+		color: navy;
+		text-shadow: 1px 1px white;
+	}
+
+	.side_header img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.side_season, .side_first, .side_regrow, 
+	.side_produces, .side_sell_price, .side_seed_price {
+		color: purple;
+		text-shadow: 1px 1px white;
+		font-size: 1.2rem;
+	}
+
+	.season, .first_harvest, .regrow, .produces, .sell_price,
+	.seed_price {
+		font-size: 1.2rem;
+	}
+
+	.notes p {
+		text-align: left;
+		font-size: .9rem;
+	}
+
+	.search-again {
+		display: block;
+		float: left;
+	}
+
+	.return-index {
+		display: block;
+		width: 250px;
+		height: 100px;
+		float: right;
+	}
+
+	.search-again, .return-index {
+		margin: 20px 10px;
+		background-color: rgba(173,216,230,.8);
+		box-sizing: border-box;
+		border: 2px solid white;
+		border-radius: 8px;
+		box-shadow: 2px 2px;
+		text-align: center;
+		font-size: 1.3rem;
+		width: 200px;
+		height: 80px;
 	}
 }
