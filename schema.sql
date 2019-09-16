@@ -119,5 +119,4 @@ VALUES (25, 150, 70),
 (33, 320, 100),
 (34, 160, 60);
 
-INSERT INTO users (name, password)
-VALUES ('Standinaccount', 123456789);
+
