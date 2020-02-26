@@ -11,7 +11,7 @@ GEM
     pg (1.1.4)
     puma (4.1.0)
       nio4r (~> 2.0)
-    rack (1.6.11)
+    rack (1.6.13)
     rack-protection (1.5.5)
       rack
     rack-test (1.1.0)
@@ -42,12 +42,13 @@ DEPENDENCIES
   erubis
   pg
   puma
+  rack (>= 1.6.12)
   simplecov
   sinatra (~> 1.4.7)
   sinatra-contrib
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.5p114
 
 BUNDLED WITH
    1.17.3
