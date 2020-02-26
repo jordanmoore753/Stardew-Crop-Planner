@@ -10,5 +10,5 @@ gem "simplecov", require: false, group: :test
 gem "rack", ">= 1.6.12"
 
 group :production do 
-	gem "puma"
+	gem "puma", ">= 4.3.1"
 end

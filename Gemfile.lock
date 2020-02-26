@@ -7,9 +7,9 @@ GEM
     erubis (2.7.0)
     json (2.2.0)
     multi_json (1.13.1)
-    nio4r (2.5.1)
+    nio4r (2.5.2)
     pg (1.1.4)
-    puma (4.1.0)
+    puma (4.3.1)
       nio4r (~> 2.0)
     rack (1.6.13)
     rack-protection (1.5.5)
@@ -41,7 +41,7 @@ DEPENDENCIES
   bcrypt
   erubis
   pg
-  puma
+  puma (>= 4.3.1)
   rack (>= 1.6.12)
   simplecov
   sinatra (~> 1.4.7)
